@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button {display:block;margin: auto;}
+        h1 {text-align: center}
+        p {text-align: left; margin: 3px 50px;}
+        a {margin: 40px}
+        textarea {text-align: left; margin : 3px 50px; width:325px}
+        label {display: inline-block; width: 150px;}
+        
+    </style>
+
+    <title>File A Complaint</title>
+    <h1>Offender Locator</h1>
+
+    <div style = "text-align: right;">
+        <a href="welcome.html">Home</a>
+        <a href="lookup.html">Lookup</a>
+        <a href="filecomplaint.html">File a complaint</a>
+        <a href="login.html">Login</a>
+        <hr>
+    </div>
+</head>
+<body>
+    <p><img src = "images/complaint.jpg" alt = "Complain"
+        style="float:right;height:300px;margin-left:100px;margin-top: 110px;margin-bottom:50px;">
+
+        <h1 style="text-align:left">File A Complaint</h1>
+        <form>
+            <fieldset style="margin-bottom:20px;">
+                <legend>Fill up all fields</legend>
+                <p><label for="fname">Offender First name : </label>
+                <input type="text" name="fname" id="fname"></p><br>
+                <p><label for="fname">Offender Last name : </label>
+                <input type="text" name="lname" id="lname"></p><br>
+                <p><label for="fname">Offender Age : </label>
+                <input type="text" name="age" id="age"></p><br>
+
+                <p><label for="gender">Offender Gender : </label>
+                <input list="genderchoices" name="gender" id="gender" /></p><br>
+                <datalist id="genderchoices">
+                    <option value="Male">
+                    <option value="Female">
+                </datalist>
+
+                <p><label for="offense">Offense : </label>
+                <input type="text" name="offense" id="offense"></p><br>
+                <p><label for="casedetails">Case Details : </label></p>
+                <textarea id="casedetails" name="casedetails" rows="5" cols="35"></textarea>
+            </fieldset>
+        </form>
+            <form action="lookup.html">
+                <button type="submit">FILE A COMPLAINT</button>
+            </form>
+
+    </p>
+</body>
+</html>
