@@ -1,20 +1,23 @@
 html, body{
     height: 100%;
     margin: 0;
+}
+
+.body-welcome{
     text-align: center;
 }
 
-button{
+.button-welcome{
     display: block;
     margin: auto auto 50px;
 }
 
-h1{
+.h1-welcome{
     margin: 50px;
     padding: 50px 0 50px;
 }
 
-p{
+.p-welcome{
     margin: 50px;
 }
 
