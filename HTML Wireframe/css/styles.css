@@ -1,0 +1,36 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+button{
+    display: block;
+    margin: auto auto 50px;
+}
+
+h1{
+    margin: 50px;
+    padding: 50px 0 50px;
+}
+
+p{
+    margin: 50px;
+}
+
+.float-start{
+    width: 50%;
+    /* margin: 0px 50px; */
+    max-height: 100%;
+}
+
+.navbar-toggler{
+    margin: 0;
+}
+/* button {display:block;margin:0 auto 50px auto;}
+
+h1 {text-align: center;margin-bottom: 50px;}
+
+
+p {text-align: center;} */
+
