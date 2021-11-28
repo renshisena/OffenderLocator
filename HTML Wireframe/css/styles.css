@@ -2,10 +2,6 @@ html, body{
     height: 100%;
 }
 
-/* fonts
-font-family: 'Montserrat', sans-serif;
-font-family: 'Roboto', sans-serif; */
-
 .body-welcome{
     text-align: center;
 }
@@ -32,6 +28,8 @@ font-family: 'Roboto', sans-serif; */
 
 .h1-welcome{
     margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .navbar-toggler{
@@ -40,6 +38,7 @@ font-family: 'Roboto', sans-serif; */
 
 .p-welcome{
     margin: 50px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .row{
