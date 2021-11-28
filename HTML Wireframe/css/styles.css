@@ -1,6 +1,5 @@
 html, body{
     height: 100%;
-    margin: 0;
 }
 
 /* fonts
@@ -16,23 +15,33 @@ font-family: 'Roboto', sans-serif; */
     margin: auto auto 50px;
 }
 
+.col-lg-6{
+    border: 1px solid;
+    margin: auto;
+}
+
+.col-lg-4{
+    border: 1px solid;
+    margin: auto;
+    width: fit-content;
+}
+
+#img-welcome{
+    width: auto;
+}
+
 .h1-welcome{
-    margin: 50px;
-    padding: 50px 0 50px;
-}
-
-.p-welcome{
-    margin: 50px;
-}
-
-.float-start{
-    width: 50%;
-    /* margin: 0px 50px; */
-    max-height: 100%;
+    margin: auto;
 }
 
 .navbar-toggler{
     margin: 0;
 }
 
+.p-welcome{
+    margin: 50px;
+}
 
+.row{
+    margin: auto;
+}
