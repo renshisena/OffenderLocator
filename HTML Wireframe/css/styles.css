@@ -1,46 +1,38 @@
 html, body{
     height: 100%;
-}
-
-.body-welcome{
     text-align: center;
+    margin: auto;
 }
 
-.button-welcome{
+button{
     display: block;
-    margin: auto auto 50px;
+    margin: 4% auto;
 }
 
-.col-lg-6{
-    border: 1px solid;
-    margin: auto;
-}
-
-.col-lg-4{
-    border: 1px solid;
-    margin: auto;
-    width: fit-content;
-}
-
-#img-welcome{
-    width: auto;
-}
-
-.h1-welcome{
-    margin: auto;
+h1{
+    margin: 2% auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+}
+
+p{
+    margin: 2% auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.col-md-6{
+    margin: 2% auto;
+}
+
+.col-md-4{
+    margin: 2% auto;
+    width: fit-content;
 }
 
 .navbar-toggler{
     margin: 0;
 }
 
-.p-welcome{
-    margin: 50px;
-    font-family: 'Roboto', sans-serif;
-}
-
 .row{
-    margin: auto;
+    margin: 4% auto;
 }
