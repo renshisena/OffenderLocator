@@ -39,30 +39,30 @@
             </div>
         </div>
         <div class="row" style="text-align: left; margin: auto;">
+            <legend>Offender Details</legend>
             <div class="col-md-6" style="margin: auto;">
-                <div class="row">
-                    <legend>Offender Details</legend>
+                <div class="row" id="nomargin">
                     <div class="col-md-6" id="fname">
-                        <label for="inputFirstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" placeholder="John"
+                        <label for="inputfname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="inputfname" placeholder="John"
                         aria-label="Offender First Name">
                     </div>
                     <div class="col-md-6" id="lname">
-                        <label for="inputLastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Doe"
+                        <label for="inputlname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="inputlname" placeholder="Doe"
                         aria-label="Offender Last Name">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="nomargin">
                     <div class="col-md-6" id="age">
-                        <label for="inputAge" class="form-label">Age</label>
-                        <input type="text" class="form-control" placeholder="30"
+                        <label for="inputid" class="form-label">Age</label>
+                        <input type="text" class="form-control" id="inputid" placeholder="30"
                         aria-label="Offender Age">
                     </div>
                     <div class="col-md-6" id="gender">
-                        <label for="inputGender" class="form-label">Gender</label>
+                        <label for="inputgender" class="form-label">Gender</label>
                         <br>
-                        <input list="genderchoices" name="gender" id="gender" class="form-control" placeholder="Male"
+                        <input list="genderchoices" name="gender" id="inputgender" class="form-control" placeholder="Male"
                         aria-label="Offender Gender"/>
                         <datalist id="genderchoices">
                             <option value="Male">
@@ -70,32 +70,30 @@
                         </datalist>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="nomargin">
                     <div class="col-md-12" id="offense">
-                        <label for="inputOffense" class="form-label">Offense</label>
-                        <input type="text" class="form-control" placeholder="Arson"
+                        <label for="inputoffense" class="form-label">Offense</label>
+                        <input type="text" class="form-control" id="inputoffense"placeholder="Arson" 
                         aria-label="Offender Offense">
                     </div>
                 </div>
+            </div>
+            <div class="col-md-6" style="margin: auto;">
                 <div class="row" id="casedetails">
                     <div class="col-md-12">
-                        <label for="inputCaseDetails" class="form-label">Case Details</label>
+                        <label for="inputcasedetails" class="form-label">Case Details</label>
                         <br>
                     </div>
                     <div class="col-md-12">
-                        <textarea id="caseDetails" name="caseDetails" class="form-control" rows="5" 
+                        <textarea id="caseDetails" name="caseDetails" id="inputcasedetails"class="form-control" rows="9" 
                         placeholder="Insert case details here or complainant's statement here"></textarea>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-outline-dark">FILE A COMPLAINT</button>
-                    </div>
-                </div>
-                
             </div>
-            <div class="col-md-6" style="margin: auto;">
-                <img class="img-fluid" src = "/HTML Wireframe/images/complaint.jpg" alt = "Complain">
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-outline-dark">FILE A COMPLAINT</button>
+                </div>
             </div>
         </div>
     </div>
