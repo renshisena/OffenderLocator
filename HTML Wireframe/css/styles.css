@@ -10,14 +10,14 @@ button{
     margin: 4% auto;
 }
 
-h1{
+h1, h2, h3, li{
     margin: 2% auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: #EEEEEE;
 }
 
-h1:hover{
+h1:hover, h2:hover, h3:hover, li:hover{
     margin: 2% auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
@@ -26,6 +26,15 @@ h1:hover{
 
 input.form-control, textarea.form-control{
     background-color: #151515;
+    color: #EEEEEE;
+}
+
+input.form-control:focus, textarea.form-control:focus{
+    background-color: #151515;
+    color: #EEEEEE;
+    border-color: #EEEEEE;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #EEEEEE;
+    outline: 0 none;
 }
 
 ul.navbar-nav.ms-auto.text-center{
@@ -103,9 +112,15 @@ p:hover{
     margin: 4% auto;
 }
 
+#nomargin{
+    margin: 0%;
+}
+
 #fname:focus-within label, #lname:focus-within label, 
 #age:focus-within label, #gender:focus-within label, 
-#offense:focus-within label, #casedetails:focus-within label
+#offense:focus-within label, #casedetails:focus-within label,
+#lookupfname:focus-within label, #lookuplname:focus-within label,
+#lookupoffenderid:focus-within label
 {
     color: #EEEEEE;
 }

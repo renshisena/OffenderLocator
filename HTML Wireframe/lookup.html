@@ -30,10 +30,8 @@
       <div class="collapse navbar-collapse" id="hamburger">
         <ul class="navbar-nav ms-auto text-center">
           <li><a class="nav-link" href="welcome.html">Home</a></li>
-          <li><a class="nav-link" href="lookupgit p.html">Lookup</a></li>
-          <li>
-            <a class="nav-link" href="filecomplaint.html">File a complaint</a>
-          </li>
+          <li><a class="nav-link" href="lookup.html">Lookup</a></li>
+          <li><a class="nav-link" href="filecomplaint.html">File a complaint</a></li>
           <li><a class="nav-link" href="login.html">Login</a></li>
         </ul>
       </div>
@@ -41,29 +39,30 @@
     <hr>
     <div class="container-lg">
       <h3>Directions:</h3>
-      <li>
-        Search for an offender's location and release date if they are
-        incarcerated and under the custody of the Barangay Anabu II-F City Hall,
-        Imus city of Cavite. Offenders who are not under Anabu II-F custody will
-        not appear in the search results.
-      </li>
-      <li>Type the first name and Last name or at least the Offender ID.</li>
-      <li>Click the search button to see results.</li>
-    
+      <div style="text-align: center;">
+        <li>
+          Search for an offender's location and release date if they are
+          incarcerated and under the custody of the Barangay Anabu II-F City Hall,
+          Imus city of Cavite. Offenders who are not under Anabu II-F custody will
+          not appear in the search results.
+        </li>
+        <li>Type the first name and Last name or at least the Offender ID.</li>
+        <li>Click the search button to see results.</li>
+      </div>
       <hr>
       <h2>Required Information</h2>
-      <div class="row">
-        <div class="col-md-4 col-sm-12">
-          <label for="fnamesearch">First Name:</label>
-          <input type="text" class="form-control" name="fnamesearch" id="fnamesearch" placeholder="John">
+      <div class="row" style="margin: auto;">
+        <div class="col-md-4 col-sm-12" id="lookupfname">
+          <label for="searchfname">First Name:</label>
+          <input type="text" class="form-control" name="searchfname" id="searchfname" placeholder="John">
         </div>
-        <div class="col-md-4 col-sm-12">
-          <label for="lnamesearch">Last Name:</label>
-          <input type="text" class="form-control" name="lnamesearch" id="lnamesearch" placeholder="Doe">
+        <div class="col-md-4 col-sm-12" id="lookuplname">
+          <label for="searchlname">Last Name:</label>
+          <input type="text" class="form-control" name="searchlname" id="searchlname" placeholder="Doe">
         </div>
-        <div class="col-md-4 col-sm-12">
-          <label for="offenderidsearch">Offender ID:</label>
-          <input type="text" class="form-control" name="offenderidsearch" id="offenderidsearch" placeholder="0001">
+        <div class="col-md-4 col-sm-12" id="lookupoffenderid">
+          <label for="searchoffenderid">Offender ID:</label>
+          <input type="text" class="form-control" name="searchoffenderid" id="searchoffenderid" placeholder="0001">
         </div>
       </div>
       <button type="submit" class="btn btn-outline-dark" style="margin: auto;">SEARCH</button>
