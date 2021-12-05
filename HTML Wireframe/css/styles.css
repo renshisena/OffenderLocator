@@ -2,7 +2,7 @@ html, body{
     height: 100%;
     text-align: center;
     margin: auto;
-    background-color: #D06224;
+    background-color: #A9333A;
 }
 
 button{
@@ -13,15 +13,15 @@ button{
 h1{
     margin: 2% auto;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #151515;
+    font-weight: bold;
+    color: #EEEEEE;
 }
 
 h1:hover{
     margin: 2% auto;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #EEEEEE;
+    font-weight: bolder;
+    color: #151515;
 }
 
 input.form-control, textarea.form-control{
@@ -33,7 +33,7 @@ ul.navbar-nav.ms-auto.text-center{
 }
 
 a:hover{
-    background-color: #D06224;
+    background-color: #A9333A;
 }
 
 nav[class="navbar navbar-expand-lg navbar-dark"]{
@@ -55,14 +55,21 @@ p{
     margin: 2% auto;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    color: #EEEEEE;
+    font-weight: bolder;
+    color: #151515;
 }
 
 p:hover{
     margin: 2% auto;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    color: #151515;
+    font-weight: bolder;
+    color: #EEEEEE;
+}
+
+.btn-outline-dark{
+    border-color: #EEEEEE;
+    color: #EEEEEE;
 }
 
 .btn.btn-outline-dark:hover{
