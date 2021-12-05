@@ -120,7 +120,7 @@ p:hover{
 #age:focus-within label, #gender:focus-within label, 
 #offense:focus-within label, #casedetails:focus-within label,
 #lookupfname:focus-within label, #lookuplname:focus-within label,
-#lookupoffenderid:focus-within label
+#lookupoffenderid:focus-within label, #loginpassword:focus-within label, #loginconfirm:focus-within label
 {
     color: #EEEEEE;
 }
