@@ -113,6 +113,7 @@ p:hover{
     margin: 0%;
 }
 
+
 #fname:focus-within label, #lname:focus-within label, 
 #age:focus-within label, #gender:focus-within label, 
 #offense:focus-within label, #casedetails:focus-within label,
