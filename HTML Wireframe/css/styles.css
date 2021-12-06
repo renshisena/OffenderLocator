@@ -10,17 +10,15 @@ button{
     margin: 4% auto;
 }
 
-h1, h2, h3, li{
+h1, h2, h3, h4, li{
     margin: 2% auto;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
     color: #EEEEEE;
 }
 
-h1:hover, h2:hover, h3:hover, li:hover{
+h1:hover, h2:hover, h3:hover, h4:hover, li:hover{
     margin: 2% auto;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
     color: #151515;
 }
 
@@ -65,7 +63,7 @@ p{
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: bolder;
-    color: #151515;
+    color: #EEEEEE;
 }
 
 p:hover{
@@ -73,7 +71,7 @@ p:hover{
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: bolder;
-    color: #EEEEEE;
+    color: #151515;
 }
 
 .btn-outline-dark{
@@ -109,7 +107,7 @@ p:hover{
 }
 
 .row{
-    margin: 4% auto;
+    margin: 3% auto;
 }
 
 #nomargin{
