@@ -89,6 +89,7 @@ p:hover{
 
 .col-md-4{
     margin: 2% auto;
+    width: fit-content;
 }
 
 .container-fluid{
