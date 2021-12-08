@@ -7,7 +7,7 @@ html, body{
 
 button{
     display: block;
-    margin: 4% auto;
+    margin: 2% auto;
 }
 
 h1, h2, h3, h4, li{
@@ -96,7 +96,7 @@ p:hover{
     padding: 0;
 }
 
-.navbar-brand a, .navbar-nav.ms-auto.text-center li a{
+ul.navbar-nav.ms-auto.text-center li a.nav-link{
     color: #EEEEEE;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
