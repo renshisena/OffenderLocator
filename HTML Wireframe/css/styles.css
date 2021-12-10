@@ -96,7 +96,7 @@ p:hover{
     padding: 0;
 }
 
-ul.navbar-nav.ms-auto.text-center li a.nav-link{
+.navbar-brand a, .navbar-nav.ms-auto.text-center li a{
     color: #EEEEEE;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
