@@ -43,26 +43,26 @@
             <div class="col-md-6" style="margin: auto;">
                 <div class="row" id="nomargin">
                     <div class="col-md-6" id="fname">
-                        <label for="inputfname" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="inputfname" placeholder="John"
+                        <label for="inputFname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="inputFname" placeholder="John"
                         aria-label="Offender First Name">
                     </div>
                     <div class="col-md-6" id="lname">
-                        <label for="inputlname" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="inputlname" placeholder="Doe"
+                        <label for="inputLname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="inputLname" placeholder="Doe"
                         aria-label="Offender Last Name">
                     </div>
                 </div>
                 <div class="row" id="nomargin">
                     <div class="col-md-6" id="age">
-                        <label for="inputid" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="inputid" placeholder="30"
+                        <label for="inputAge" class="form-label">Age</label>
+                        <input type="text" class="form-control" id="inputAge" placeholder="30"
                         aria-label="Offender Age">
                     </div>
                     <div class="col-md-6" id="gender">
-                        <label for="inputgender" class="form-label">Gender</label>
+                        <label for="inputGender" class="form-label">Gender</label>
                         <br>
-                        <input list="genderchoices" name="gender" id="inputgender" class="form-control" placeholder="Male"
+                        <input list="genderchoices" name="gender" id="inputGender" class="form-control" placeholder="Male"
                         aria-label="Offender Gender"/>
                         <datalist id="genderchoices">
                             <option value="Male">
@@ -72,8 +72,8 @@
                 </div>
                 <div class="row" id="nomargin">
                     <div class="col-md-12" id="offense">
-                        <label for="inputoffense" class="form-label">Offense</label>
-                        <input type="text" class="form-control" id="inputoffense"placeholder="Arson" 
+                        <label for="inputOffense" class="form-label">Offense</label>
+                        <input type="text" class="form-control" id="inputOffense"placeholder="Arson" 
                         aria-label="Offender Offense">
                     </div>
                 </div>
@@ -81,23 +81,42 @@
             <div class="col-md-6" style="margin: auto;">
                 <div class="row" id="casedetails">
                     <div class="col-md-12">
-                        <label for="inputcasedetails" class="form-label">Case Details</label>
+                        <label for="inputCaseDetails" class="form-label">Case Details</label>
                         <br>
                     </div>
                     <div class="col-md-12">
-                        <textarea id="caseDetails" name="caseDetails" id="inputcasedetails"class="form-control" rows="9" 
+                        <textarea id="caseDetails" name="caseDetails" id="inputCaseDetails"class="form-control" rows="9" 
                         placeholder="Insert case details here or complainant's statement here"></textarea>
                     </div>
                 </div>
             </div>
             <div class="row" id="nomargin">
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-dark"><i class="fas fa-file-signature"></i> File complaint</button>
+                    <button type="submit" class="btn btn-outline-dark"><i class="fas fa-file-signature" onclick="checkInputs()"></i> File complaint</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        var firstName = document.getElementById('inputFname');
+        var lastName = document.getElementById('inputLname');
+        var age = document.getElementById('inputAge');
+        var gender = document.getElementById('inputGender');
+        var offense = document.getElementById('inputOffense');
+        var casedetails = document.getElementById('inputCaseDetails');
+
+        function checkInputs(){
+            var firstNameValue = firstName.value.trim()
+            var lastNameValue = lastName.value.trim()
+            var ageValue = age.value.trim()
+            var genderValue = gender.value.trim()
+            var offenseValue = offense.value.trim()
+            var casedetailsValue = casedetails.value.trim()
+        }
+        
+
+    </script>
 </body>
 </html>
