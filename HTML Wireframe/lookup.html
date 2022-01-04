@@ -47,15 +47,15 @@
       <div class="row">
         <div class="col-md-4 col-sm-12" id="lookupfname">
           <label for="searchfname">First Name:</label>
-          <input type="text" class="form-control" name="searchfname" id="searchfname" placeholder="John">
+          <input type="text" class="form-control" name="searchfname" id="searchFName" placeholder="John">
         </div>
         <div class="col-md-4 col-sm-12" id="lookuplname">
           <label for="searchlname">Last Name:</label>
-          <input type="text" class="form-control" name="searchlname" id="searchlname" placeholder="Doe">
+          <input type="text" class="form-control" name="searchlname" id="searchLName" placeholder="Doe">
         </div>
         <div class="col-md-4 col-sm-12" id="lookupoffenderid">
           <label for="searchoffenderid">Offender ID:</label>
-          <input type="text" class="form-control" name="searchoffenderid" id="searchoffenderid" placeholder="0001">
+          <input type="text" class="form-control" name="searchoffenderid" id="searchOffenderid" placeholder="0001">
         </div>
       </div>
       <button type="submit" class="btn btn-outline-light"><i class="fas fa-search"></i> Search</button>
@@ -64,19 +64,18 @@
     <div class="container-lg">
       <h2>SEARCH RESULTS:</h2>
       <div class="table-responsive-admin">
-        <table class="table table-dark table-striped">
+        <table id="offenderTable" class="table table-dark table-striped" >
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
             <th>Gender</th>
-            <th>Offender ID</th>
-            <th>Case ID</th>
+            <!-- <th>Offender ID</th>
+            <th>Case ID</th> -->
             <th>Case Status</th>
-            <th>Case Description</th>
             <th>Offense</th>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>John</td>
             <td>Doe</td>
             <td>40</td>
@@ -84,66 +83,18 @@
             <td>0001</td>
             <td>0001</td>
             <td>Ongoing</td>
-            <td>Lorem Ipsum</td>
-            <td>Theft</td>
-
-          </tr>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>40</td>
-            <td>Male</td>
-            <td>0001</td>
-            <td>0001</td>
-            <td>Ongoing</td>
-            <td>Lorem Ipsum</td>
-            <td>Theft</td>
-
-          </tr>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>40</td>
-            <td>Male</td>
-            <td>0001</td>
-            <td>0001</td>
-            <td>Ongoing</td>
-            <td>Lorem Ipsum</td>
             <td>Theft</td>
           </tr>
           <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>40</td>
+            <td>Joshua Yves</td>
+            <td>Edellon</td>
+            <td>22</td>
             <td>Male</td>
-            <td>0001</td>
-            <td>0001</td>
+            <td>0002</td>
+            <td>0002</td>
             <td>Ongoing</td>
-            <td>Lorem Ipsum</td>
             <td>Theft</td>
-          </tr>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>40</td>
-            <td>Male</td>
-            <td>0001</td>
-            <td>0001</td>
-            <td>Ongoing</td>
-            <td>Lorem Ipsum</td>
-            <td>Theft</td>
-          </tr>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>40</td>
-            <td>Male</td>
-            <td>0001</td>
-            <td>0001</td>
-            <td>Ongoing</td>
-            <td>Lorem Ipsum</td>
-            <td>Theft</td>
-          </tr>
+          </tr> -->
         </table>
       </div>
     </div>
@@ -157,9 +108,10 @@
         Specific questions regarding an offender's sentence cannot be discussed with the general public.
       </p>
     </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
   crossorigin="anonymous"> </script>
+  <script src="JavaScript/script.js"></script>
+  
 </body>
 </html>
