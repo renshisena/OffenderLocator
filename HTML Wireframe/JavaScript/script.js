@@ -15,7 +15,7 @@ var login = document.getElementById("login");
 login.addEventListener("click", validate);
 //File Complaint
 var entry = document.getElementById("fileComplaint");
-entry.addEventListener("click", AddRow);
+entry.addEventListener("click", displayOffenders);
 
 var resetPass = document.getElementById("resetPass");
 resetPass.addEventListener("click", resetPassword())
@@ -29,58 +29,22 @@ function checkInputs(){
     var casedetailsValue = casedetails.value.trim()
 }
 
-// function displayOffenders(){
-//     var oFirstName = document.getElementById("inputFname").value;
-//     var oLastName = document.getElementById("inputLname").value;
-//     var oAge = document.getElementById("inputAge").value;
-//     var oGender = document.getElementById("inputGender").value;
-//     var oOffense = document.getElementById(inputOffense).value;
-//     var oCaseDetails = document.getElementById("inputCaseDetails").value;
+function displayOffenders(){
+    var oFirstName = document.getElementById("inputFname").value;
+    var oLastName = document.getElementById("inputLname").value;
+    var oAge = document.getElementById("inputAge").value;
+    var oGender = document.getElementById("inputGender").value;
+    var oOffense = document.getElementById(inputOffense).value;
+    var oCaseDetails = document.getElementById("inputCaseDetails").value;
 
-//     if (!oFirstName || !oLastName || !oAge || !oGender || !oOffense || !oCaseDetails){
-//         alert("Please fill up empty fields!");
-//         return;
-//     }
+    if (!oFirstName || !oLastName || !oAge || !oGender || !oOffense || !oCaseDetails){
+        alert("Please fill up empty fields!");
+        return;
+    }
     
     
-//     var lookupTable = document.getElementById("lookupTable");
-//     var newRow = lookupTable.insertRow(row);
-    
-//     var cell1 = newRow.insertCell(0);
-//     var cell2 = newRow.insertCell(1);
-//     var cell3 = newRow.insertCell(2);
-//     var cell4 = newRow.insertCell(3);
-//     var cell5 = newRow.insertCell(4);
-//     var cell6 = newRow.insertCell(5);
-
-//     cell1.innerHTML = oFirstName;
-//     cell2.innerHTML = oLastName;
-//     cell3.innerHTML = oFirstName;
-//     cell4.innerHTML = oAge;
-//     cell5.innerHTML = oFirstName;
-//     cell6.innerHTML = oGender;
-// }
-var list1 = [];
-var list2 = [];
-var list3 = [];
-var list4 = [];
-var list5 = [];
-var list6 = [];
-var n = 1;
-var x = 0;
-var
-function AddRow(){
-    alert("wow");
-    var AddRown= document.getElementById('lookupTable')
-    var newRow = AddRown.insertRow(n);
-
-    list1[x] = document.getElementById("firstName").value;
-    list2[x] = document.getElementById("lastName").value;
-    list3[x] = document.getElementById("age").value;
-    list4[x] = document.getElementById("gender").value;
-    list5[x] = document.getElementById("offense").value;
-    list6[x] = document.getElementById("casedetails").value;
-    
+    var offenderTable = document.getElementById("offenderTable");
+    var newRow = offenderTable.insertRow(row);
     var cell1 = newRow.insertCell(0);
     var cell2 = newRow.insertCell(1);
     var cell3 = newRow.insertCell(2);
@@ -88,22 +52,12 @@ function AddRow(){
     var cell5 = newRow.insertCell(4);
     var cell6 = newRow.insertCell(5);
 
-    cell1.innerHTML = list1[x];
-    cell2.innerHTML = list2[x];
-    cell3.innerHTML = list3[x];
-    cell4.innerHTML = list4[x];
-    cell5.innerHTML = list5[x];
-    cell6.innerHTML = list6[x];
-
-    n++;
-    x++;
-
-    window.location.href = 'lookupAdmin.html'
-
-    if (!oFirstName || !oLastName || !oAge || !oGender || !oOffense || !oCaseDetails){
-    alert("Please fill up empty fields!");
-    return;
-    }
+    cell1.innerHTML = oFirstName;
+    cell2.innerHTML = oLastName;
+    cell3.innerHTML = oFirstName;
+    cell4.innerHTML = oAge;
+    cell5.innerHTML = oFirstName;
+    cell6.innerHTML = oGender;
 }
 
 localStorage.setItem("currentPasswordValue",currentPassword);
@@ -144,7 +98,8 @@ function resetPassword(){
         alert("You have set new a password.")
         window.location.href = 'login.html'
             return false;
-    }  
+    }
+    
 }
     
         
