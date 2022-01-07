@@ -15,7 +15,8 @@ var login = document.getElementById("login");
 login.addEventListener("click", validate);
 //File Complaint
 var entry = document.getElementById("fileComplaint");
-entry.addEventListener("click", displayOffenders);
+// entry.addEventListener("click", displayOffenders);
+entry.addEventListener("click", passvalues);
 
 var resetPass = document.getElementById("resetPass");
 resetPass.addEventListener("click", resetPassword);
@@ -25,6 +26,10 @@ checkSearchALbtn.addEventListener("click", checkSearchAL);
 
 var checkSearchbtn = document.getElementById("searchOffenderBtn");
 checkSearchbtn.addEventListener("click", checkSearch);
+
+function name(){
+    
+}
 
 function checkSearch(){
     var searchVFName = document.getElementById("searchFName").value;
