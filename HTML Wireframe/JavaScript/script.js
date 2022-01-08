@@ -13,10 +13,6 @@ var row = 1;
 //Login Script
 var login = document.getElementById("login");
 login.addEventListener("click", validate);
-//File Complaint
-var entry = document.getElementById("fileComplaint");
-// entry.addEventListener("click", displayOffenders);
-entry.addEventListener("click", passvalues);
 
 var resetPass = document.getElementById("resetPass");
 resetPass.addEventListener("click", resetPassword);
@@ -27,7 +23,12 @@ checkSearchALbtn.addEventListener("click", checkSearchAL);
 var checkSearchbtn = document.getElementById("searchOffenderBtn");
 checkSearchbtn.addEventListener("click", checkSearch);
 
-function name(){
+function jstest(){
+    if(document.getElementById("functiontest").innerHTML == "Wazzah?"){
+        document.getElementById("functiontest").innerHTML = "HELLO THERE";
+    } else {
+        document.getElementById("functiontest").innerHTML = "Wazzah?";
+    }
     
 }
 
