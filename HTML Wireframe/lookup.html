@@ -44,21 +44,23 @@
       <li>Click the search button to see results.</li>
       <hr>
       <h2>Required Information</h2>
-      <div class="row">
-        <div class="col-md-4 col-sm-12" id="lookupfname">
-          <label for="searchName" style="color: #EEEE;">Offender's Name:</label>
-          <input type="text" class="form-control" name="searchName" id="searchName" placeholder="John">
-        </div>
-        <!-- <div class="col-md-4 col-sm-12" id="lookuplname"> -->
-          <!-- <label for="searchlname">Last Name:</label>
-          <input type="text" class="form-control" name="searchLName" id="searchLName" placeholder="Doe">
-        </div> -->
-        <div class="col-md-4 col-sm-12" id="lookupoffenderid">
-          <label for="searchoffenderid" style="color: #EEEE;">Offender ID:</label>
-          <input type="text" class="form-control" name="searchoffenderid" id="searchOffenderid" placeholder="0001">
-        </div>
-      </div>
-      <button type="submit" class="btn btn-outline-dark" id="searchOffenderBtn" onclick="checkSearch()"><i class="fas fa-search"></i> Search</button>
+      
+        <form>
+          <div class="row">
+            <div class="col-md-4 col-sm-12" id="lookupfname">
+              <label for="searchName" style="color: #eeee;">Offender's Name:</label>
+              <input type="text" class="form-control" name="searchName" id="searchName" placeholder="John" required>
+            </div>
+            <div class="col-md-4 col-sm-12" id="lookupoffenderid">
+              <label for="searchoffenderid" style="color: #eeee;">Offender ID:</label>
+              <input type="text" class="form-control" name="searchoffenderid" id="searchOffenderid" placeholder="0001">
+            </div>
+            <div>
+              <button type="submit" class="btn btn-outline-dark" id="searchOffenderBtn" onclick="checkSearch()"><i class="fas fa-search"></i> Search</button>
+            </div>
+          </div>
+        </form>
+      
     </div>
     <hr style="margin-top: 5%;">
     <div class="container-lg">
@@ -66,14 +68,12 @@
       <div class="table-responsive-admin">
         <table id="lookupTable" class="table table-dark table-striped">
           <tr>
-            <th>Name</th>
+            <th>Offender's Name</th>
             <th>Age</th>
             <th>Gender</th>
             <th>Offense</th>
             <th>Offender ID</th>
             <th>Case Status</th>
-            <!-- <th>Offender ID</th>
-            <th>Case ID</th> -->
           </tr>
           <tr>
             <td>John Doe</td>
@@ -92,7 +92,7 @@
             <td>Ongoing</td>
           </tr>
           <tr>
-            <td>Renshi Sena</td>
+            <td>Renshi</td>
             <td>22</td>
             <td>Male</td>
             <td>Libel</td>

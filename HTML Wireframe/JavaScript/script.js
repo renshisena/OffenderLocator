@@ -17,13 +17,11 @@ login.addEventListener("click", validate);
 var resetPass = document.getElementById("resetPass");
 resetPass.addEventListener("click", resetPassword);
 
-var checkSearchALbtn = document.getElementById("searchAdminLookup");
-checkSearchALbtn.addEventListener("click", checkSearchAL);
+var searchAdmin = document.getElementById("searchAdminLookup");
+searchAdmin.addEventListener("click",checkSearchAL);
 
-var checkSearchbtn = document.getElementById("searchOffenderBtn");
-checkSearchbtn.addEventListener("click", checkSearch);
-
-
+var searchLookup = document.getElementById("searchOffenderBtn");
+searchLookup.addEventListener("click",checkSearch);
 
 function checkInputs(){
     var firstNameValue = firstName.value.trim()
@@ -32,38 +30,6 @@ function checkInputs(){
     var genderValue = gender.value.trim()
     var offenseValue = offense.value.trim()
     var casedetailsValue = casedetails.value.trim()
-}
-
-function displayOffenders(){
-    var oFirstName = document.getElementById("inputFname").value;
-    var oLastName = document.getElementById("inputLname").value;
-    var oAge = document.getElementById("inputAge").value;
-    var oGender = document.getElementById("inputGender").value;
-    var oOffense = document.getElementById(inputOffense).value;
-    var oCaseDetails = document.getElementById("inputCaseDetails").value;
-
-    if (!oFirstName || !oLastName || !oAge || !oGender || !oOffense || !oCaseDetails){
-        alert("Please fill up empty fields!");
-        return;
-    }
-
-    
-    
-    var offenderTable = document.getElementById("offenderTable");
-    var newRow = offenderTable.insertRow(row);
-    var cell1 = newRow.insertCell(0);
-    var cell2 = newRow.insertCell(1);
-    var cell3 = newRow.insertCell(2);
-    var cell4 = newRow.insertCell(3);
-    var cell5 = newRow.insertCell(4);
-    var cell6 = newRow.insertCell(5);
-
-    cell1.innerHTML = oFirstName;
-    cell2.innerHTML = oLastName;
-    cell3.innerHTML = oFirstName;
-    cell4.innerHTML = oAge;
-    cell5.innerHTML = oFirstName;
-    cell6.innerHTML = oGender;
 }
 
 localStorage.setItem("currentPasswordValue",currentPassword);
@@ -78,7 +44,6 @@ function validate(){
         }
         else{
             alert("Log-in Failed");
-
         }
     }
 
@@ -109,43 +74,43 @@ function resetPassword(){
 }
 
 function checkSearch(){
-    var inputName,filter,table, tr, td, i, txtValue;
-    inputName = document.getElementById("searchName");
-    table = document.getElementById("lookupTable");
-    filter = inputName.value.toUpperCase();
-    tr = table.getElementsByTagName("tr");
-    
-    
-    for (i = 0; 1 < tr.length; i++){
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }       
-        }
+  var inputName,filter,table, tr, td, i, txtValue;
+  inputName = document.getElementById("searchName");
+  table = document.getElementById("lookupTable");
+  filter = inputName.value.toUpperCase();
+  tr = table.getElementsByTagName("tr");
+  
+  
+  for (i = 0; 1 < tr.length; i++){
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
       }
+    }
 
-function checkSearchAL (){
-    var inputName,filter,table, tr, td, i, txtValue;
-    inputName = document.getElementById("searchALName");
-    table = document.getElementById("adminTable");
-    filter = inputName.value.toUpperCase();
-    tr = table.getElementsByTagName("tr");
-    
-    
-    for (i = 0; 1 < tr.length; i++){
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }       
-        }
+function checkSearchAL(){
+  var inputName,filter,table, tr, td, i, txtValue;
+  inputName = document.getElementById("searchALname");
+  table = document.getElementById("adminTable");
+  filter = inputName.value.toUpperCase();
+  tr = table.getElementsByTagName("tr");
+  
+  
+  for (i = 0; 1 < tr.length; i++){
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
       }
+    }
