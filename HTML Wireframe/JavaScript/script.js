@@ -26,38 +26,6 @@ function checkInputs(){
     var casedetailsValue = casedetails.value.trim()
 }
 
-function displayOffenders(){
-    var oFirstName = document.getElementById("inputFname").value;
-    var oLastName = document.getElementById("inputLname").value;
-    var oAge = document.getElementById("inputAge").value;
-    var oGender = document.getElementById("inputGender").value;
-    var oOffense = document.getElementById(inputOffense).value;
-    var oCaseDetails = document.getElementById("inputCaseDetails").value;
-
-    if (!oFirstName || !oLastName || !oAge || !oGender || !oOffense || !oCaseDetails){
-        alert("Please fill up empty fields!");
-        return;
-    }
-
-    
-    
-    var offenderTable = document.getElementById("offenderTable");
-    var newRow = offenderTable.insertRow(row);
-    var cell1 = newRow.insertCell(0);
-    var cell2 = newRow.insertCell(1);
-    var cell3 = newRow.insertCell(2);
-    var cell4 = newRow.insertCell(3);
-    var cell5 = newRow.insertCell(4);
-    var cell6 = newRow.insertCell(5);
-
-    cell1.innerHTML = oFirstName;
-    cell2.innerHTML = oLastName;
-    cell3.innerHTML = oFirstName;
-    cell4.innerHTML = oAge;
-    cell5.innerHTML = oFirstName;
-    cell6.innerHTML = oGender;
-}
-
 localStorage.setItem("currentPasswordValue",currentPassword);
 function validate(){
     var inputLoginP = document.getElementById("inputLoginPassword").value;
