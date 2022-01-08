@@ -57,17 +57,6 @@ function resetPassword(){
     
     if (inputResetC == currentPassword){
         alert("Cannot have same password as before!");
-    }
-    if (inputResetP == "" || inputResetC == ""){
-        alert("Fill up the fields!")
-        return false;
-    }
-    if (inputResetP == "" && inputResetC == ""){
-        alert("Fill up the fields!")
-        return false;
-    }
-    if (inputResetP != inputResetC){
-        alert("Confirm password entry must be the same as Password entry!")
         return false;
     }
     if (inputResetP == currentPassword === !inputResetC);{
