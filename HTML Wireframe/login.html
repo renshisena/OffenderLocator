@@ -42,26 +42,29 @@
                     <p>Enter required information</p>
                 </div>
             </div>
-            <div class="row" id="nomargin">
-                <div class="col-md-4" id="loginpassword">
-                    <label for="inputLoginPassword">Password :</label>
-                    <input type="password" class="form-control" name="inputLoginPassword" id="inputLoginPassword" placeholder="*********">
+            <form onsubmit="event.preventDefault();return false">
+                <div class="row" id="nomargin">
+                    <div class="col-md-4" id="loginpassword">
+                        <label for="inputLoginPassword">Password :</label>
+                        <input type="password" class="form-control" name="inputLoginPassword" id="inputLoginPassword" placeholder="*********" required>
+                    </div>
                 </div>
-            </div>
-            <div class="row" id="nomargin">
-                <div class="col-md-4" id="loginconfirm">
-                    <label for="inputLoginConfirm">Confirm Password :</label>
-                    <input type="password" class="form-control" name="inputLoginConfirm" id="inputLoginConfirm" placeholder="*********">
+                <div class="row" id="nomargin">
+                    <div class="col-md-4" id="loginconfirm">
+                        <label for="inputLoginConfirm">Confirm Password :</label>
+                        <input type="password" class="form-control" name="inputLoginConfirm" id="inputLoginConfirm" placeholder="*********" required>
+                    </div>
+                </div><div class="row" id="nomargin">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="login" onclick="validate()">Login</button>
+                    </div>
+                </div><div class="row" id="nomargin">
+                    <div class="col-md-4">
+                        <a href="forgot.html" class="link-light"><em>Set new password here!</em></a>
+                    </div>
                 </div>
-            </div><div class="row" id="nomargin">
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="login" onclick="validate()">Login</button>
-                </div>
-            </div><div class="row" id="nomargin">
-                <div class="col-md-4">
-                    <a href="forgot.html" class="link-light"><em>Set new password here!</em></a>
-                </div>
-            </div>
+            </form>
+            
         </div>
         
     </div>

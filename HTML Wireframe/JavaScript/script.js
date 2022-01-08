@@ -41,29 +41,34 @@ function validate(){
         alert("Log-in Successfully");
         window.location.href = 'lookupAdmin.html'
         return false;
+        } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
+            alert("Type correct password!")
+            return false;
         }
-        else{
-            alert("Log-in Failed");
-        }
+        
+        // else{
+        //     alert("Log-in Failed");
+        // }
     }
 
 function resetPassword(){
     var inputResetP = document.getElementById("inputResetPassword").value;
     var inputResetC = document.getElementById("inputResetConfirm").value;
     
-    if (!inputResetP || !inputResetC){
-            alert("Fill up empty fields!");
-            return;
-        }
     if (inputResetC == currentPassword){
         alert("Cannot have same password as before!");
     }
-    if (!inputResetC){
-        alert("Fill up empty fields!")
-
+    if (inputResetP == "" || inputResetC == ""){
+        alert("Fill up the fields!")
+        return false;
     }
-    if (!inputResetP){
-        alert("Fill up empty fields!")
+    if (inputResetP == "" && inputResetC == ""){
+        alert("Fill up the fields!")
+        return false;
+    }
+    if (inputResetP != inputResetC){
+        alert("Confirm password entry must be the same as Password entry!")
+        return false;
     }
     if (inputResetP == currentPassword === !inputResetC);{
         alert("You have set new a password.")

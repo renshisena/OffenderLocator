@@ -41,16 +41,17 @@
                     <p>Enter required information</p>
                 </div>
             </div>
-            <div class="row" id="nomargin">
+            <form onsubmit="event.preventDefault();return false">
+                <div class="row" id="nomargin">
                 <div class="col-md-4" id="loginpassword">
                     <label for="inputResetPassword">Password :</label>
-                    <input type="password" class="form-control" name="inputResetPassword" id="inputResetPassword" placeholder="*********">
+                    <input type="password" class="form-control" name="inputResetPassword" id="inputResetPassword" placeholder="*********" required>
                 </div>
             </div>
             <div class="row" id="nomargin">
                 <div class="col-md-4" id="loginconfirm">
                     <label for="inputResetConfirm">Confirm Password :</label>
-                    <input type="password" class="form-control" name="inputResetConfirm" id="inputResetConfirm" placeholder="*********">
+                    <input type="password" class="form-control" name="inputResetConfirm" id="inputResetConfirm" placeholder="*********" required>
                 </div>
             </div><div class="row" id="nomargin">
                 <div class="col-md-4">
@@ -61,6 +62,7 @@
                     <a href="login.html" class="link-light"><em>Login here!</em></a>
                 </div>
             </div>
+            </form>
         </div>
         
     </div>
