@@ -23,15 +23,6 @@ checkSearchALbtn.addEventListener("click", checkSearchAL);
 var checkSearchbtn = document.getElementById("searchOffenderBtn");
 checkSearchbtn.addEventListener("click", checkSearch);
 
-function jstest(){
-    if(document.getElementById("functiontest").innerHTML == "Wazzah?"){
-        document.getElementById("functiontest").innerHTML = "HELLO THERE";
-    } else {
-        document.getElementById("functiontest").innerHTML = "Wazzah?";
-    }
-    
-}
-
 function checkSearch(){
     var searchVFName = document.getElementById("searchFName").value;
     var searchVLName = document.getElementById("searchLName").value;
