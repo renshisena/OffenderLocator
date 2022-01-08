@@ -15,19 +15,19 @@
     <link rel="stylesheet" href="css/styles.css">
     <script>
         function passvalues(){
-    getfName = document.getElementById("inputFname").value;
-    localStorage.setItem("fNameValue", getfName);
-    getlName = document.getElementById("inputLname").value;
-    localStorage.setItem("lNameValue", getlName);
-    getage = document.getElementById("inputAge").value;
-    localStorage.setItem("ageValue", getage);
-    getgender = document.getElementById("inputGender").value;
-    localStorage.setItem("genderValue", getgender);
-    getoffense = document.getElementById("inputOffense").value;
-    localStorage.setItem("offenseValue", getoffense).value;
-    // getcasedetails = document.getElementById("inputCaseDetails").value;
-    // localStorage.setItem("caseDetailsValue", getcasedetails).value;
-    return false
+            getfName = document.getElementById("inputFname").value;
+            localStorage.setItem("fNameValue", getfName);
+            getlName = document.getElementById("inputLname").value;
+            localStorage.setItem("lNameValue", getlName);
+            getage = document.getElementById("inputAge").value;
+            localStorage.setItem("ageValue", getage);
+            getgender = document.getElementById("inputGender").value;
+            localStorage.setItem("genderValue", getgender);
+            getoffense = document.getElementById("inputOffense").value;
+            localStorage.setItem("offenseValue", getoffense);
+            getcasedetails = document.getElementById("inputCaseDetails").value;
+            localStorage.setItem("caseDetailsValue", getcasedetails);
+            return false
 }
     </script>
     <title>File A Complaint</title>
@@ -63,36 +63,32 @@
                         <div class="col-md-6" id="fname">
                             <label for="inputFname" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="inputFname" placeholder="John"
-                            aria-label="Offender First Name">
+                            aria-label="Offender First Name" required>
                         </div>
                         <div class="col-md-6" id="lname">
                             <label for="inputLname" class="form-label">Last Name</label>
                             <input type="text" class="form-control" id="inputLname" placeholder="Doe"
-                            aria-label="Offender Last Name">
+                            aria-label="Offender Last Name" required>
                         </div>
                     </div>
                     <div class="row" id="nomargin">
                         <div class="col-md-6" id="age">
                             <label for="inputAge" class="form-label">Age</label>
                             <input type="text" class="form-control" id="inputAge" placeholder="30"
-                            aria-label="Offender Age">
+                            aria-label="Offender Age" required>
                         </div>
                         <div class="col-md-6" id="gender">
                             <label for="inputGender" class="form-label">Gender</label>
                             <br>
-                            <input list="genderchoices" id="inputGender" class="form-control" placeholder="Male"
-                            aria-label="Offender Gender"/>
-                            <datalist id="genderchoices">
-                                <option value="Male">
-                                <option value="Female">
-                            </datalist>
+                            <input type="text" class="form-control" id="inputGender"placeholder="Male" 
+                            aria-label="Offender Gender" required>
                         </div>
                     </div>
                     <div class="row" id="nomargin">
                         <div class="col-md-12" id="offense">
                             <label for="inputOffense" class="form-label">Offense</label>
                             <input type="text" class="form-control" id="inputOffense"placeholder="Arson" 
-                            aria-label="Offender Offense">
+                            aria-label="Offender Offense" required>
                         </div>
                     </div>
                 </div>
@@ -104,8 +100,8 @@
                             <br>
                         </div>
                         <div class="col-md-12">
-                            <textarea id="caseDetails" id="inputCaseDetails"class="form-control" rows="9" 
-                            placeholder="Insert case details here or complainant's statement here"></textarea>
+                            <textarea id="inputCaseDetails"class="form-control" rows="9" 
+                            placeholder="Insert case details here or complainant's statement here" required></textarea>
                         </div>
                     </div>
                 </div>
