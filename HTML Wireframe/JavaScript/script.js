@@ -17,37 +17,6 @@ login.addEventListener("click", validate);
 var resetPass = document.getElementById("resetPass");
 resetPass.addEventListener("click", resetPassword);
 
-var checkSearchALbtn = document.getElementById("searchAdminLookup");
-checkSearchALbtn.addEventListener("click", checkSearchAL);
-
-var checkSearchbtn = document.getElementById("searchOffenderBtn");
-checkSearchbtn.addEventListener("click", checkSearch);
-
-function checkSearch(){
-    var searchVFName = document.getElementById("searchFName").value;
-    var searchVLName = document.getElementById("searchLName").value;
-    var searchVOI = document.getElementById("searchOffenderid").value;
-    if (!searchVFName || !searchVLName || !searchVOI){
-        alert("Please fill up the empty fields!");
-        return false;
-    }
-}
-
-function checkSearchAL(){
-    var searchAdminFname = document.getElementById("searchALFname").value;
-    var searchAdaminLname = document.getElementById("searchALLname").value;
-    var searchAadminOI = document.getElementById("searchALoffenderid").value;
-    
-    if (!searchAdminFname || !searchAdaminLname || !searchAadminOI){
-        alert("Please fill up the empty fields!");
-        return;
-    }
-    else if(searchAdminFname != undefined )
-        alert("search function will be added soon!");
-    
-}
-
-
 function checkInputs(){
     var firstNameValue = firstName.value.trim()
     var lastNameValue = lastName.value.trim()
