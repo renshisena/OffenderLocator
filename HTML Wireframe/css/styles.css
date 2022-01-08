@@ -43,7 +43,7 @@ a:hover{
     background-color: #A9333A;
 }
 
-nav[class="navbar navbar-expand-lg navbar-dark"]{
+nav[class="navbar sticky-top navbar-expand-lg navbar-dark"]{
     background-color: #151515;
 }
 
