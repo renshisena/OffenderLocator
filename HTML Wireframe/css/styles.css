@@ -76,7 +76,7 @@ p:hover{
 
 .btn-outline-dark{
     border-color: #EEEEEE;
-    color: #EEEEEE;
+    background-color: #EEEEEE;
 }
 
 .btn.btn-outline-dark:hover{
