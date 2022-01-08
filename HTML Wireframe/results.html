@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
@@ -12,55 +12,55 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="css/styles.css"></head>
-
+    <link rel="stylesheet" href="css/styles.css">
     <title>Complaint Preview</title>
+
+    
+</head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="welcome.html">Offender Locator</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
+            aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="hamburger">
+            <ul class="navbar-nav ms-auto text-center">
+              <li><a class="nav-link" href="welcome.html">Home</a></li>
+              <li><a class="nav-link" href="lookup.html">Lookup</a></li>
+              <li><a class="nav-link" href="filecomplaint.html">File a complaint</a></li>
+              <li><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="welcome.html">Offender Locator</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
-                aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="hamburger">
-                <ul class="navbar-nav ms-auto text-center">
-                  <li><a class="nav-link" href="welcome.html">Home</a></li>
-                  <li><a class="nav-link" href="lookup.html">Lookup</a></li>
-                  <li><a class="nav-link" href="filecomplaint.html">File a complaint</a></li>
-                  <li><a class="nav-link" href="login.html">Login</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="row" style="margin: auto;">
+        <div class="row" style="margin: 5%;width: fit-content;">
             <div class="col-md-12">
-                <h1 style="margin: 2% auto;">Complaint</h1>
+                <h1 style="margin: 0% auto 2%;">You have submitted a complaint</h1>
+            </div>
+            <div class="container-lg">
+                <table class="table table-dark table-striped" id="tableresult">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Offense</th>
+                            <th>Case Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <a href="filecomplaint.html">Go back</a>
             </div>
         </div>
-        <table>
-            <tr>
-                <td>
-                    <table class="list" id="tableresult">
-                        <thead>
-                            <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Age</th>
-                                <th>Gender</th>
-                                <th>Offense</th>
-                                <th>Case Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    
-        <a href="filecomplaint.html">Go back</a>
     </div>
+    <h1 id="functiontest">Wazzah?</h1>
+    <button id="buttontest" onclick="jstest()">CHANGE TEXT</button>
     
 
     <script>
@@ -76,11 +76,11 @@
         cell4.innerHTML = localStorage.getItem("genderValue");
         cell5 = newRow.insertCell(4);
         cell5.innerHTML = localStorage.getItem("offenseValue");
-        // cell6 = newRow.insertCell(5);
-        // cell6.innerHTML = localStorage.getItem("caseDetailsValue");
-        
+        cell6 = newRow.insertCell(5);
+        cell6.innerHTML = localStorage.getItem("caseDetailsValue");
     </script>
 
-    <!-- <script src="js/script1.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="JavaScript/script.js"></script>
 </body>
 </html>
