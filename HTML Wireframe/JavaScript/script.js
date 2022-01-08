@@ -23,29 +23,6 @@ checkSearchALbtn.addEventListener("click", checkSearchAL);
 var checkSearchbtn = document.getElementById("searchOffenderBtn");
 checkSearchbtn.addEventListener("click", checkSearch);
 
-function checkSearch(){
-    var searchVFName = document.getElementById("searchFName").value;
-    var searchVLName = document.getElementById("searchLName").value;
-    var searchVOI = document.getElementById("searchOffenderid").value;
-    if (!searchVFName || !searchVLName || !searchVOI){
-        alert("Please fill up the empty fields!");
-        return false;
-    }
-}
-
-function checkSearchAL(){
-    var searchAdminFname = document.getElementById("searchALFname").value;
-    var searchAdaminLname = document.getElementById("searchALLname").value;
-    var searchAadminOI = document.getElementById("searchALoffenderid").value;
-    
-    if (!searchAdminFname || !searchAdaminLname || !searchAadminOI){
-        alert("Please fill up the empty fields!");
-        return;
-    }
-    else if(searchAdminFname != undefined )
-        alert("search function will be added soon!");
-    
-}
 
 
 function checkInputs(){
@@ -130,3 +107,45 @@ function resetPassword(){
     }
     
 }
+
+function checkSearch(){
+    var inputName,filter,table, tr, td, i, txtValue;
+    inputName = document.getElementById("searchName");
+    table = document.getElementById("lookupTable");
+    filter = inputName.value.toUpperCase();
+    tr = table.getElementsByTagName("tr");
+    
+    
+    for (i = 0; 1 < tr.length; i++){
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+
+function checkSearchAL (){
+    var inputName,filter,table, tr, td, i, txtValue;
+    inputName = document.getElementById("searchALName");
+    table = document.getElementById("adminTable");
+    filter = inputName.value.toUpperCase();
+    tr = table.getElementsByTagName("tr");
+    
+    
+    for (i = 0; 1 < tr.length; i++){
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }

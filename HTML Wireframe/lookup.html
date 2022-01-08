@@ -46,15 +46,15 @@
       <h2>Required Information</h2>
       <div class="row">
         <div class="col-md-4 col-sm-12" id="lookupfname">
-          <label for="searchfname">First Name:</label>
-          <input type="text" class="form-control" name="searchFName" id="searchFName" placeholder="John">
+          <label for="searchName" style="color: #EEEE;">Offender's Name:</label>
+          <input type="text" class="form-control" name="searchName" id="searchName" placeholder="John">
         </div>
-        <div class="col-md-4 col-sm-12" id="lookuplname">
-          <label for="searchlname">Last Name:</label>
+        <!-- <div class="col-md-4 col-sm-12" id="lookuplname"> -->
+          <!-- <label for="searchlname">Last Name:</label>
           <input type="text" class="form-control" name="searchLName" id="searchLName" placeholder="Doe">
-        </div>
+        </div> -->
         <div class="col-md-4 col-sm-12" id="lookupoffenderid">
-          <label for="searchoffenderid">Offender ID:</label>
+          <label for="searchoffenderid" style="color: #EEEE;">Offender ID:</label>
           <input type="text" class="form-control" name="searchoffenderid" id="searchOffenderid" placeholder="0001">
         </div>
       </div>
@@ -66,34 +66,38 @@
       <div class="table-responsive-admin">
         <table id="lookupTable" class="table table-dark table-striped">
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Age</th>
             <th>Gender</th>
+            <th>Offense</th>
+            <th>Offender ID</th>
+            <th>Case Status</th>
             <!-- <th>Offender ID</th>
             <th>Case ID</th> -->
-            <th>Offense</th>
           </tr>
           <tr>
-            <td>John</td>
-            <td>Doe</td>
+            <td>John Doe</td>
             <td>40</td>
             <td>Male</td>
             <td>Theft</td>
+            <td>0001</td>
+            <td>Ongoing</td>
           </tr>
           <tr>
-            <td>Joshua Yves</td>
-            <td>Edellon</td>
+            <td>Joshua Yves Edellon</td>
             <td>22</td>
             <td>Male</td>
             <td>Theft</td>
+            <td>0002</td>
+            <td>Ongoing</td>
           </tr>
           <tr>
-            <td>Renshi</td>
-            <td>Sena</td>
+            <td>Renshi Sena</td>
             <td>22</td>
             <td>Male</td>
             <td>Libel</td>
+            <td>0003</td>
+            <td>Ongoing</td>
           </tr>
         </table>
       </div>

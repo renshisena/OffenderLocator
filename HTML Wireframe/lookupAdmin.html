@@ -70,15 +70,15 @@
       <h2>Required Information</h2>
       <div class="row">
         <div class="col-md-4 col-sm-12" id="lookupfname">
-          <label for="searchfname">First Name:</label>
-          <input type="text" class="form-control" name="searchALFname" id="searchALFname" placeholder="John">
+          <label for="searchALName" style="color: #EEEE;">Offender's Name:</label>
+          <input type="text" class="form-control" name="searchALName" id="searchALName" placeholder="John">
         </div>
-        <div class="col-md-4 col-sm-12" id="lookuplname">
+        <!-- <div class="col-md-4 col-sm-12" id="lookuplname">
           <label for="searchlname">Last Name:</label>
           <input type="text" class="form-control" name="searchALLname" id="searchALLname" placeholder="Doe">
-        </div>
+        </div> -->
         <div class="col-md-4 col-sm-12" id="lookupoffenderid">
-          <label for="searchoffenderid">Offender ID:</label>
+          <label for="searchoffenderid" style="color: #EEEE;">Offender ID:</label>
           <input type="text" class="form-control" name="searchALoffenderid" id="searchALoffenderid" placeholder="0001">
         </div>
       </div>
@@ -91,40 +91,36 @@
         <!-- Editable table -->
 
   <div class="card-body">
-    <div id="table" class="table-editable">
-      <table class="table table-dark table-striped"> 
+    <div class="table-editable">
+      <table class="table table-dark table-striped " id="adminTable"> 
         <thead>
           <tr>
-            <th class="text-center">Offender ID</th>
-            <th class="text-center">First Name</th>
-            <th class="text-center">Last Name</th>
+            <th class="text-center">Name</th>
             <th class="text-center">Age</th>
             <th class="text-center">Gender</th>
             <th class="text-center">Offense</th>
+            <th class="text-center">Offender ID</th>
             <th class="text-center">Case Status</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="pt-3-half" contenteditable="false">0001 </td>
-            <td class="pt-3-half" contenteditable="true">Aurelia </td>
-            <td class="pt-3-half" contenteditable="true">Vega</td>
-            <td class="pt-3-half" contenteditable="true">30</td>
-            <td class="pt-3-half" contenteditable="false">Female</td>
+            <td class="pt-3-half" contenteditable="true">John Doe</td>
+            <td class="pt-3-half" contenteditable="true">40</td>
+            <td class="pt-3-half" contenteditable="false">Male</td>
             <td class="pt-3-half" contenteditable="true">Theft</td>
+            <td class="pt-3-half" contenteditable="false">0001</td>
             <td class="pt-3-half" contenteditable="true">Ongoing</td>
-            <td class="pt-3-half">
-            </td>
+            <td class="pt-3-half"></td>
           </tr>
           <!-- This is our clonable table line -->
           <tr>
-            <td class="pt-3-half" contenteditable="false">0002</td>
-            <td class="pt-3-half" contenteditable="true">Joshua Yves</td>
-            <td class="pt-3-half" contenteditable="true">Edellon</td>
+            <td class="pt-3-half" contenteditable="true">Joshua Yves Edellon</td>
             <td class="pt-3-half" contenteditable="true">22</td>
             <td class="pt-3-half" contenteditable="false">Male</td>
             <td class="pt-3-half" contenteditable="true">Attempted murder</td>
+            <td class="pt-3-half" contenteditable="false">0002</td>
             <td class="pt-3-half" contenteditable="true">Ongoing</td>
             <td class="pt-3-half">
             </td>
@@ -132,28 +128,16 @@
           </tr>
           <!-- This is our clonable table line -->
           <tr>
-            <td class="pt-3-half" contenteditable="false">0003 </td>
-            <td class="pt-3-half" contenteditable="true">Renshi</td>
-            <td class="pt-3-half" contenteditable="true">Sena</td>
+            <td class="pt-3-half" contenteditable="true">Renshi Sena</td>
             <td class="pt-3-half" contenteditable="true">34</td>
             <td class="pt-3-half" contenteditable="false">Male</td>
             <td class="pt-3-half" contenteditable="true">Forgery</td>
+            <td class="pt-3-half" contenteditable="false">0003</td>
             <td class="pt-3-half" contenteditable="true">Ongoing</td>
             <td class="pt-3-half">
             </td>
             </tr>
           <!-- This is our clonable table line -->
-          <tr class="hide">
-            <td class="pt-3-half" contenteditable="false">0004 </td>
-            <td class="pt-3-half" contenteditable="true">Jhousua</td>
-            <td class="pt-3-half" contenteditable="true">Jumalon</td>
-            <td class="pt-3-half" contenteditable="true">23</td>
-            <td class="pt-3-half" contenteditable="false">Male</td>
-            <td class="pt-3-half" contenteditable="true">Libel</td>
-            <td class="pt-3-half" contenteditable="true">Ongoing</td>
-            <td class="pt-3-half">
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
