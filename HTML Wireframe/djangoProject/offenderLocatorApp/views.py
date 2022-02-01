@@ -4,8 +4,8 @@ from django.shortcuts import render
 
 from django.http import HttpResponse, request
 
-def welcome(request):
-    return render(request, 'htmlFiles/welcome.html')
+def homepage(request):
+    return render(request, 'htmlFiles/homepage.html')
 
 def filecomplaint(request):
     return render(request, 'htmlFiles/filecomplaint.html')
@@ -19,3 +19,5 @@ def reset(request):
 def lookup(request):
     return render(request, 'htmlFiles/lookup.html')
 
+def admin(request):
+    return render(request, 'htmlFiles/lookupAdmin.html')

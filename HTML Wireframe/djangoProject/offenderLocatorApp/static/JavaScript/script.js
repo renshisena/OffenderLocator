@@ -38,17 +38,11 @@ function validate(){
     var inputLoginC = document.getElementById("inputLoginConfirm").value; 
     
     if (inputLoginP == currentPassword && inputLoginC == currentPassword){
-        alert("Log-in Successfully");
-        window.location.href = 'lookupAdmin.html'
+        window.location.href = '/admin'
         return false;
         } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
-            alert("Type correct password!")
-            return false;
+            alert("Type correct password!");
         }
-        
-        // else{
-        //     alert("Log-in Failed");
-        // }
     }
 
 function resetPassword(){
@@ -61,7 +55,7 @@ function resetPassword(){
     }
     if (inputResetP == currentPassword === !inputResetC);{
         alert("You have set new a password.")
-        window.location.href = 'login.html'
+        window.location.href = '/login'
             return false;
     }
     

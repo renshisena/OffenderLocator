@@ -115,6 +115,10 @@ p:hover{
     
 }
 
+.carousel{
+    width: 840px;
+    height: 560px;
+}
 
 #fname:focus-within label, #lname:focus-within label, 
 #age:focus-within label, #gender:focus-within label, 
