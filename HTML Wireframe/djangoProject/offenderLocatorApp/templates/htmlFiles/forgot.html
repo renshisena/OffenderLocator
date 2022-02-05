@@ -40,6 +40,7 @@
                 </div>
             </div>
             <form onsubmit="event.preventDefault();return false">
+                {% csrf_token %}
                 <div class="row" id="nomargin">
                 <div class="col-md-4" id="loginpassword">
                     <label for="inputResetPassword">Enter Current Password :</label>

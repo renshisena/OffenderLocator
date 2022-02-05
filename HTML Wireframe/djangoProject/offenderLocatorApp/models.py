@@ -2,19 +2,28 @@ from tabnanny import verbose
 from django.db import models
 from datetime import datetime
 
+
 from django.forms import CharField, DateField, IntegerField
 
 
 # Create your models here.
 class offenders(models.Model):
+    status = (
+        ("Ongoing","Ongoing"),
+        ("Release","Release"),
+        ("Transfer","Transfer"),
+    )
     offender = models.CharField(max_length=45, verbose_name='offender')
     gender = models.CharField(max_length=6, verbose_name='gender')
-    age = models.PositiveSmallIntegerField(verbose_name='age')
-    offenderID = CharField(verbose_name= 'offenderID')
-    offense = models.CharField(max_length=4, verbose_name='offense')
-    caseStatus= models.CharField(max_length=8, verbose_name='caseStatus')
-    caseDescription = models.TextField(verbose_name='caseDescription')
+    age = models.IntegerField()
+    offenderID = models.CharField(max_length = 4,verbose_name= 'offenderID')
+    offense = models.CharField(max_length=45, verbose_name='offense')
+    casestatus = models.CharField(max_length=20, choices=status, default='Ongoing')
+    caseDescription = models.TextField(max_length = 400,verbose_name='caseDescription')
     password = models.CharField(max_length=12, verbose_name='password')
-    dateRelease = models.DateField()
-    dateTransfer = models.DateField()
-    dateComplaint = models.DateField()
+    dateRelease = models.CharField(max_length=3)
+    dateTransfer = models.CharField(max_length=3)
+    dateComplaint = models.CharField(max_length=3)
+
+def __str__(self):
+    return self.offenderID

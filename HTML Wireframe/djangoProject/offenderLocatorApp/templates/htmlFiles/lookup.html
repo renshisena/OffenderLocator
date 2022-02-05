@@ -48,6 +48,7 @@
       <h2>Required Information</h2>
       
         <form>
+          {% csrf_token %}
           <div class="row">
             <div class="col-md-4 col-sm-12" id="lookupfname">
               <label for="searchName" style="color: #eeee;">Offender's Name:</label>

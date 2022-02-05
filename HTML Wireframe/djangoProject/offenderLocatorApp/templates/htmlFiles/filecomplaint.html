@@ -40,38 +40,39 @@
             </div>
         </div>
         <div >
-            <form class="row" style="text-align: left; margin: auto;" action = "results.html" method = "GET">
+            <form class="row" style="text-align: left; margin: auto;" action = "/results" method = "GET">
+                {% csrf_token %}
                 <legend style="color: #EEEEEE">Offender Details</legend>
                 <div class="col-md-6" style="margin: auto;">
                     <div class="row" id="nomargin">
                         <div class="col-md-6" id="fname">
                             <label for="inputFname" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="inputFname" placeholder="John"
+                            <input name= "inputName" type="text" class="form-control" id="inputFname" placeholder="John"
                             aria-label="Offender First Name" required>
                         </div>
                         <div class="col-md-6" id="lname">
                             <label for="inputLname" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="inputLname" placeholder="Doe"
+                            <input type="text" class="form-control" id="inputLname" placeholder="Doe" name="inputsurname"
                             aria-label="Offender Last Name" required>
                         </div>
                     </div>
                     <div class="row" id="nomargin">
                         <div class="col-md-6" id="age">
                             <label for="inputAge" class="form-label">Age</label>
-                            <input type="text" class="form-control" id="inputAge" placeholder="30"
+                            <input type="text" class="form-control" id="inputAge" name="inputage" placeholder="30"
                             aria-label="Offender Age" required>
                         </div>
                         <div class="col-md-6" id="gender">
                             <label for="inputGender" class="form-label">Gender</label>
                             <br>
-                            <input type="text" class="form-control" id="inputGender"placeholder="Male" 
+                            <input type="text" name="inputGender" class="form-control" id="inputGender"placeholder="Male" 
                             aria-label="Offender Gender" required>
                         </div>
                     </div>
                     <div class="row" id="nomargin">
                         <div class="col-md-12" id="offense">
                             <label for="inputOffense" class="form-label">Offense</label>
-                            <input type="text" class="form-control" id="inputOffense"placeholder="Arson" 
+                            <input type="text" name="inputoffense" class="form-control" id="inputOffense"placeholder="Arson" 
                             aria-label="Offender Offense" required>
                         </div>
                     </div>
@@ -84,7 +85,7 @@
                             <br>
                         </div>
                         <div class="col-md-12">
-                            <textarea id="inputCaseDetails"class="form-control" rows="9" 
+                            <textarea id="inputCaseDetails"class="form-control" rows="9"  name="inputcasedesc"
                             placeholder="Insert case details here or complainant's statement here" required></textarea>
                         </div>
                     </div>
