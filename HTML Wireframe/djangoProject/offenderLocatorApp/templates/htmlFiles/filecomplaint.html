@@ -40,7 +40,7 @@
             </div>
         </div>
         <div >
-            <form class="row" style="text-align: left; margin: auto;" action = "/results" method = "GET">
+            <form class="row" style="text-align: left; margin: auto;" action = "{% url 'htmlFiles:addoffender' %}" method = "POST">
                 {% csrf_token %}
                 <legend style="color: #EEEEEE">Offender Details</legend>
                 <div class="col-md-6" style="margin: auto;">

@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.contrib.auth.models import User
 
 # Create your views here.
 
 from django.http import HttpResponse, request
 from .models import offenders
+from .models import offenders1
 
 def homepage(request):
     return render(request, 'htmlFiles/homepage.html')
@@ -28,17 +30,16 @@ def results(request):
 
 
 def addoffender(request):
-    offender = request.POST["inputname"]
-    inputsurname = request.POST["inputsurname"]
-    age = request.POST["inputage"]
-    gender = request.POST["inputgender"]
-    offense = request.POST["inputoffense"]
-    caseDescription = request.POST["inputcasedesc"]
-    
-    offendertable = offenders(offender = offender,inputsurname=inputsurname, inputage=age, inputgender = gender, offense = offense, caseDescription = caseDescription)
-    
+    offender = request.POST.get('inputName')
+    age = request.POST.get('inputage')
+    gender = request.POST.get('inputGender')
+    offense = request.POST.get('inputoffense')
+    casedescription = request.POST.get('inputcasedesc')
+    offendertable = offenders1.objects.create(offender = offender, age=age, gender = gender, offense = offense, caseDescription = casedescription)
     offendertable.save()
-    return render(request, "htmlFiles/results.html")
+    return redirect('/filecomplaint')
+
 
 def showoffenders(request):
-    pass
+    data1 = offenders1.objects.all()
+    return render(request, 'htmlFiles/lookup.html', {'data1':data1})
