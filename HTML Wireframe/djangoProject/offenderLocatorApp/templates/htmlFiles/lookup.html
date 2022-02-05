@@ -42,7 +42,7 @@
         Imus city of Cavite. Offenders who are not under Anabu II-F custody will
         not appear in the search results.
       </li>
-      <li>Type the first name and Last name or at least the Offender ID.</li>
+      <li>Type the Full name of the Offender.</li>
       <li>Click the search button to see results.</li>
       <hr>
       <h2>Required Information</h2>
@@ -51,12 +51,8 @@
           {% csrf_token %}
           <div class="row">
             <div class="col-md-4 col-sm-12" id="lookupfname">
-              <label for="searchName" style="color: #eeee;">Offender's Name:</label>
-              <input type="text" class="form-control" name="searchName" id="searchName" placeholder="John" required>
-            </div>
-            <div class="col-md-4 col-sm-12" id="lookupoffenderid">
-              <label for="searchoffenderid" style="color: #eeee;">Offender ID:</label>
-              <input type="text" class="form-control" name="searchoffenderid" id="searchOffenderid" placeholder="0001">
+              <label for="searchName" style="color: #eeee;">Offender's Full Name:</label>
+              <input type="text" class="form-control" name="searchName" id="searchName" placeholder="John Doe" required>
             </div>
             <div>
               <button type="button" class="btn btn-outline-dark" onclick="checkSearch()"><i class="fas fa-search"></i> Search</button>
@@ -81,14 +77,14 @@
             </tr>
           </thead>
           <tbody>
-            {% for k in data1 %}
+            {% for items in data1 %}
             <tr>
-              <th scope="row">{{k.offender}}</th>
-              <td>{{k.age}}</td>
-              <td>{{k.gender}}</td>
-              <td>{{k.gender}}</td>
-              <td>{{k.gender}}</td>
-              <td>{{k.gender}}</td>
+              <th>{{items.offender}}</th>
+              <td>{{items.age}}</td>
+              <td>{{items.gender}}</td>
+              <td>{{items.offense}}</td>
+              <td>{{items.offenderID}}</td>
+              <td>{{items.caseStatus}}</td>
             </tr>
             {% endfor %}
         </tbody>

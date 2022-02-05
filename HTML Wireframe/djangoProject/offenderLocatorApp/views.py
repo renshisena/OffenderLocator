@@ -37,7 +37,7 @@ def addoffender(request):
     casedescription = request.POST.get('inputcasedesc')
     offendertable = offenders1.objects.create(offender = offender, age=age, gender = gender, offense = offense, caseDescription = casedescription)
     offendertable.save()
-    return redirect('/filecomplaint')
+    return redirect('/results')
 
 
 def showoffenders(request):

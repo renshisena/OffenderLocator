@@ -38,7 +38,7 @@ function validate(){
     var inputLoginC = document.getElementById("inputLoginConfirm").value; 
     
     if (inputLoginP == currentPassword && inputLoginC == currentPassword){
-        window.location.href = '/admin'
+        window.location.href = '/admin_lookup'
         return false;
         } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
             alert("Type correct password!");

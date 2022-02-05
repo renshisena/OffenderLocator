@@ -65,7 +65,7 @@
         Imus city of Cavite. Offenders who are not under Anabu II-F custody will
         not appear in the search results.
       </li>
-      <li>Type the first name and Last name or at least the Offender ID.</li>
+      <li>Type the Full name of the Offender.</li>
       <li>Click the search button to see results.</li>
       <hr>
       <h2>Required Information</h2>
@@ -73,12 +73,8 @@
       <form onsubmit="event.preventDefault();return false">
         <div class="row">
           <div class="col-md-4 col-sm-12" id="lookupfname">
-            <label for="searchALname" style="color: #eeee;">Offender's Name:</label>
-            <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="John" required>
-          </div>
-          <div class="col-md-4 col-sm-12" id="lookupoffenderid">
-            <label for="searchoffenderid" style="color: #eeee;">Offender ID:</label>
-            <input type="text" class="form-control" name="searchALoffenderid" id="searchALoffenderid" placeholder="0001">
+            <label for="searchALname" style="color: #eeee;">Offender's Full Name:</label>
+            <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="John Doe" required>
           </div>
         </div>
         <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearchAL()"><i class="fas fa-search"></i> Search</button>
