@@ -98,54 +98,37 @@
             <th class="text-center">Offense</th>
             <th class="text-center">Offender ID</th>
             <th class="text-center">Case Status</th>
-            <th></th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="pt-3-half" contenteditable="true">John Doe</td>
-            <td class="pt-3-half" contenteditable="true">40</td>
-            <td class="pt-3-half" contenteditable="false">Male</td>
-            <td class="pt-3-half" contenteditable="true">Theft</td>
-            <td class="pt-3-half" contenteditable="false">0001 </td>
-            <td class="pt-3-half" contenteditable="true">Ongoing</td>
-            <td class="pt-3-half">
-            </td>
-          </tr>
-          <!-- This is our clonable table line -->
-          <tr>
-
-            <td class="pt-3-half" contenteditable="true">Joshua Yves Edellon</td>
-            <td class="pt-3-half" contenteditable="true">22</td>
-            <td class="pt-3-half" contenteditable="false">Male</td>
-            <td class="pt-3-half" contenteditable="true">Attempted murder</td>
-            <td class="pt-3-half" contenteditable="false">0002</td>
-            <td class="pt-3-half" contenteditable="true">Ongoing</td>
-            <td class="pt-3-half">
-            </td>
-           
-          </tr>
-          <!-- This is our clonable table line -->
-          <tr>
-
-            <td class="pt-3-half" contenteditable="true">Renshi Sena</td>
-            <td class="pt-3-half" contenteditable="true">34</td>
-            <td class="pt-3-half" contenteditable="false">Male</td>
-            <td class="pt-3-half" contenteditable="true">Forgery</td>
-            <td class="pt-3-half" contenteditable="false">0003 </td>
-            <td class="pt-3-half" contenteditable="true">Ongoing</td>
-            <td class="pt-3-half">
-            </td>
+          {% for items in data1 %}
+            <tr>
+              <td>{{items.offender}}</th>
+              <td>{{items.age}}</td>
+              <td>{{items.gender}}</td>
+              <td>{{items.offense}}</td>
+              <td>{{items.id}}</td>
+              <form action="" method="post">
+                {% csrf_token %}
+              <td><select name="caseStatus" id="">
+                <option value="{{items.caseStatus}}" disabled selected>{{items.caseStatus}}</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Released">Released</option>
+                <option value="Transferred">Transferred</option>
+              </select></td>
+              <td>
+                <input type="hidden" name="getID" value="{{items.id}}">
+                <button type = "submit" class="btn btn-success">Save</button>
+              </form>
+              </td>
             </tr>
-          <!-- This is our clonable table line -->
+            {% endfor %}
         </tbody>
       </table>
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary">Save changes</button>
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-  </div>
+
 </div>
       </div>
     </div>

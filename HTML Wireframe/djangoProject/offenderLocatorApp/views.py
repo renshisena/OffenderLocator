@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 from django.http import HttpResponse, request
-from .models import offenders
-from .models import offenders1
+from .models import *
+
+
 
 def homepage(request):
     return render(request, 'htmlFiles/homepage.html')
@@ -18,12 +19,22 @@ def login(request):
 
 def reset(request):
     return render(request, 'htmlFiles/forgot.html')
-
+kawatan=[]
 def lookup(request):
-    return render(request, 'htmlFiles/lookup.html')
+    data1 = offenders1.objects.all()
+    context = {'data1':data1}
+    print('Jan antoni')
+    print(kawatan)
+    return render(request, 'htmlFiles/lookup.html', context)
 
 def adminlookup(request):
-    return render(request, 'htmlFiles/lookupAdmin.html')
+    janA1 = request.POST.get('caseStatus')
+    janA2 = request.POST.get('getID')
+    offenders1.objects.filter(id=janA2).update(caseStatus = janA1)
+    data1 = offenders1.objects.all()
+    context = {'data1':data1}
+    print(janA1,janA2)
+    return render(request, 'htmlFiles/lookupAdmin.html',context)
 
 def results(request):
     return render(request, 'htmlFiles/results.html')
@@ -37,9 +48,10 @@ def addoffender(request):
     casedescription = request.POST.get('inputcasedesc')
     offendertable = offenders1.objects.create(offender = offender, age=age, gender = gender, offense = offense, caseDescription = casedescription)
     offendertable.save()
+    kawatan.append(offendertable)
+    print(kawatan)
     return redirect('/results')
 
 
-def showoffenders(request):
-    data1 = offenders1.objects.all()
-    return render(request, 'htmlFiles/lookup.html', {'data1':data1})
+
+   

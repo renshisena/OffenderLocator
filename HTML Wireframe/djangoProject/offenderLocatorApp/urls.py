@@ -11,5 +11,4 @@ urlpatterns = [
     path('admin_lookup/', views.adminlookup, name='admin_lookup'),
     path('results/', views.results, name='results'),
     path('addoffender/',views.addoffender,name='addoffender'),
-    path('showoffenders/',views.showoffenders, name='showoffenders'),
 ]
