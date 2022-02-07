@@ -23,8 +23,6 @@ kawatan=[]
 def lookup(request):
     data1 = offenders1.objects.all()
     context = {'data1':data1}
-    print('Jan antoni')
-    print(kawatan)
     return render(request, 'htmlFiles/lookup.html', context)
 
 def adminlookup(request):

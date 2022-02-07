@@ -93,10 +93,10 @@
         <thead>
           <tr>
             <th class="text-center">Offender's Name</th>
+            <th class="text-center">Offender ID</th>
             <th class="text-center">Age</th>
             <th class="text-center">Gender</th>
             <th class="text-center">Offense</th>
-            <th class="text-center">Offender ID</th>
             <th class="text-center">Case Status</th>
             <th class="text-center">Action</th>
           </tr>
@@ -105,10 +105,10 @@
           {% for items in data1 %}
             <tr>
               <td>{{items.offender}}</th>
+              <td>{{items.id}}</td>
               <td>{{items.age}}</td>
               <td>{{items.gender}}</td>
               <td>{{items.offense}}</td>
-              <td>{{items.id}}</td>
               <form action="" method="post">
                 {% csrf_token %}
               <td><select name="caseStatus" id="">

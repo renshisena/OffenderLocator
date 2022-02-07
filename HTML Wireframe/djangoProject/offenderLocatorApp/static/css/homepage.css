@@ -74,6 +74,7 @@
 #carouselExampleIndicators .carousel-inner .carousel-item:nth-child(3){
     position: relative;
     background: url('https://images.pexels.com/photos/417202/pexels-photo-417202.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    
     background-size: 100% 100%;
     background-position: center;
 }
@@ -92,7 +93,7 @@
     width: 100%;
     z-index: 1;
     text-align: center;
-    font-size: 5.5em;
+    font-size: 6em;
     font-weight: 750;
 }
 
@@ -102,7 +103,7 @@
     width: 100%;
     z-index: 1;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: 500;
     
 }
