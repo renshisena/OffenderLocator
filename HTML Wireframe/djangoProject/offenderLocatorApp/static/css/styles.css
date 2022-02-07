@@ -40,6 +40,7 @@ ul.navbar-nav.ms-auto.text-center{
 }
 
 a:hover{
+    text-decoration: none;
     background-color: #A9333A;
 }
 

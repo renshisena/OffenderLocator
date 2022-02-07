@@ -1,6 +1,5 @@
 //Declaration
 var firstName = document.getElementById('inputFname');
-var lastName = document.getElementById('inputLname');
 var age = document.getElementById('inputAge');
 var gender = document.getElementById('inputGender');
 var offense = document.getElementById('inputOffense');
@@ -25,7 +24,6 @@ searchLookup.addEventListener("click",checkSearch);
 
 function checkInputs(){
     var firstNameValue = firstName.value.trim()
-    var lastNameValue = lastName.value.trim()
     var ageValue = age.value.trim()
     var genderValue = gender.value.trim()
     var offenseValue = offense.value.trim()

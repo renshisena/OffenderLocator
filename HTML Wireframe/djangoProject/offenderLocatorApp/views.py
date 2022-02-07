@@ -19,7 +19,7 @@ def login(request):
 
 def reset(request):
     return render(request, 'htmlFiles/forgot.html')
-kawatan=[]
+
 def lookup(request):
     data1 = offenders1.objects.all()
     context = {'data1':data1}
@@ -30,8 +30,7 @@ def adminlookup(request):
     janA2 = request.POST.get('getID')
     offenders1.objects.filter(id=janA2).update(caseStatus = janA1)
     data1 = offenders1.objects.all()
-    context = {'data1':data1}
-    print(janA1,janA2)
+    context = {'data1':data1} 
     return render(request, 'htmlFiles/lookupAdmin.html',context)
 
 def results(request):
@@ -46,10 +45,10 @@ def addoffender(request):
     casedescription = request.POST.get('inputcasedesc')
     offendertable = offenders1.objects.create(offender = offender, age=age, gender = gender, offense = offense, caseDescription = casedescription)
     offendertable.save()
-    kawatan.append(offendertable)
-    print(kawatan)
-    return redirect('/results')
+    return redirect('/lookup')
 
+def release(request):
+    return render(request,'htmlFiles/release.html' )
 
 
    
