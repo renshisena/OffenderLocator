@@ -24,6 +24,7 @@ def lookup(request):
     data1 = offenders1.objects.all()
     context = {'data1':data1}
     return render(request, 'htmlFiles/lookup.html', context)
+    
 
 def adminlookup(request):
     janA1 = request.POST.get('caseStatus')
@@ -47,8 +48,22 @@ def addoffender(request):
     offendertable.save()
     return redirect('/lookup')
 
+
+    
 def release(request):
-    return render(request,'htmlFiles/release.html' )
+     return render(request,'htmlFiles/release.html' )
+def transfer(request):
+     return render(request,'htmlFiles/transfer.html' )
+def ongoing(request):
+    return render(request,'htmlFiles/ongoing.html' )
 
-
-   
+# def viewdetails(request):
+#     # offender_info = offenders1.objects.get(id=id)
+    
+#     print("w9io")
+    # return redirect('/lookup')
+def resetpassword(request):
+    password = request.POST.get('inputResetPassword')
+    newpassword = request.POST.get('inputResetConfirm')
+    data = offenders2.objects(password=password).update(password = newpassword)
+    return redirect('/login')

@@ -22,9 +22,10 @@ class offenders1(models.Model):
     offense = models.CharField(max_length=45, verbose_name='offense')
     caseStatus = models.CharField(max_length=11, choices=status, default='Ongoing')
     caseDescription = models.TextField(max_length = 400,null = TRUE,verbose_name='caseDescription')
+    
 
     
 class offenders2(models.Model):
     newpassword = models.CharField(max_length=12, verbose_name='newpassword')
-    password = models.CharField(max_length=12, verbose_name='password')
+    password = models.CharField(max_length=12, verbose_name='password',default = 'admin')
     

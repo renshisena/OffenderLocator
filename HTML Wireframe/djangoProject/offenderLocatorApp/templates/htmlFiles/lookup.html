@@ -86,7 +86,9 @@
               <td>{{items.gender}}</td>
               <td>{{items.offense}}</td>
               <td>{{items.caseStatus}}</td>
-              <td><button type="submit" class="btn btn-primary" href="/release">View Details</button></td>
+              <td><input type="hidden" name="getID" value="{{items.id}}">
+              <a href="/viewdetails" class="btn btn-primary">View Details</a>
+              </td>
             </tr>
             {% endfor %}
         </tbody>

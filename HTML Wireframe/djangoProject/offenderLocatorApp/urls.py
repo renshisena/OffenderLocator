@@ -11,5 +11,8 @@ urlpatterns = [
     path('admin_lookup/', views.adminlookup, name='admin_lookup'),
     path('results/', views.results, name='results'),
     path('addoffender/',views.addoffender,name='addoffender'),
-    path('release/',views.release,name='release'),
+    # path('viewdetails/',views.viewdetails, name = 'viewdetails'),
+    path('release/',views.release, name='release'),
+    path('ongoing/',views.ongoing, name='ongoing'),
+    path('transfer/',views.transfer, name='transfer'),
 ]
