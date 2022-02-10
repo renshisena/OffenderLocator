@@ -22,13 +22,6 @@ searchAdmin.addEventListener("click",checkSearchAL);
 var searchLookup = document.getElementById("searchOffenderBtn");
 searchLookup.addEventListener("click",checkSearch);
 
-function checkInputs(){
-    var firstNameValue = firstName.value.trim()
-    var ageValue = age.value.trim()
-    var genderValue = gender.value.trim()
-    var offenseValue = offense.value.trim()
-    var casedetailsValue = casedetails.value.trim()
-}
 
 localStorage.setItem("currentPasswordValue",currentPassword);
 function validate(){
@@ -36,29 +29,14 @@ function validate(){
     var inputLoginC = document.getElementById("inputLoginConfirm").value; 
     
     if (inputLoginP == currentPassword && inputLoginC == currentPassword){
+        alert("Logged-in Successfully");
         window.location.href = '/admin_lookup'
         return false;
         } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
-            alert("Type correct password!");
-        }
-    }
-
-function resetPassword(){
-    var inputResetP = document.getElementById("inputResetPassword").value;
-    var inputResetC = document.getElementById("inputResetConfirm").value;
-    
-    if (inputResetC == currentPassword){
-        alert("Cannot have same password as before!");
-        return false;
-    }
-    if (inputResetP == currentPassword === !inputResetC);{
-        alert("You have set new a password.")
-        window.location.href = '/login'
+            alert("Incorrect password!")
             return false;
-    }
-    
-}
-
+        }
+    }  
 function checkSearch(){
   var inputName,filter,table, tr, td, i, txtValue;
   inputName = document.getElementById("searchName");
@@ -100,3 +78,16 @@ function checkSearchAL(){
         }       
       }
     }
+
+  function logout(){
+    let text = "Are you sure do you want to leave?";
+  if (confirm(text) == true) {
+    text = "Logging Out!";
+    window.location.href = '/login'
+    return;
+  } else {
+    text = "Canceled Operation";
+    return;
+  }
+
+}

@@ -41,16 +41,16 @@
       </button>
       <div class="collapse navbar-collapse" id="hamburger">
         <ul class="navbar-nav ms-auto text-center">
-          <li><a class="nav-link" href="/">Home</a></li>
-          <li><a class="nav-link" href="/lookup">Lookup</a></li>
-          <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
+          <li><a class="nav-link" href="/" onclick="logout()">Home</a></li>
+          <li><a class="nav-link" href="/lookup"onclick="logout()">Lookup</a></li>
+          <li><a class="nav-link" href="/filecomplaint"onclick="logout()">File a complaint</a></li>
           
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
             </button>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-              <li><a class="dropdown-item" href="/login">Sign Out</a></li>
+              <li><a id="signout"class="dropdown-item" onclick="logout()" selected>Sign Out</a></li>
             </ul>
           </div>
         </ul>
@@ -98,6 +98,7 @@
             <th class="text-center">Gender</th>
             <th class="text-center">Offense</th>
             <th class="text-center">Case Status</th>
+            <th class="text-center">Date of Complaint</th>
             <th class="text-center">Action</th>
           </tr>
         </thead>
@@ -116,7 +117,9 @@
                 <option value="Ongoing">Ongoing</option>
                 <option value="Released">Released</option>
                 <option value="Transferred">Transferred</option>
-              </select></td>
+              </select>
+            </td>
+              <td>{{items.datenow}}</td>
               <td>
                 <input type="hidden" name="getID" value="{{items.id}}">
                 <button type = "submit" class="btn btn-success">Save</button>

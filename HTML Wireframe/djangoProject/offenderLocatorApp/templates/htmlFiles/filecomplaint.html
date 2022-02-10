@@ -30,7 +30,7 @@
                   <li><a class="nav-link" href="/">Home</a></li>
                   <li><a class="nav-link" href="/lookup">Lookup</a></li>
                   <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
-                  <li><a class="nav-link" href="/login">Login</a></li>
+                  <li><a class="nav-link" href="/login">Admin</a></li>
                 </ul>
             </div>
         </nav>
@@ -60,15 +60,69 @@
                         <div class="col-md-6" id="gender">
                             <label for="inputGender" class="form-label">Gender</label>
                             <br>
-                            <input type="text" name="inputGender" class="form-control" id="inputGender"placeholder="Male" 
-                            aria-label="Offender Gender" required>
+                            <select type="text" name="selectedGender" class="form-control" 
+                            aria-label="Offender Gender" value="Select Gender">
+                            <option value="Select Gender" disabled selected>Select gender</option>
+                            <option value="Male" >Male</option>
+                            <option value="Released" >Female</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row" id="nomargin">
                         <div class="col-md-12" id="offense">
-                            <label for="inputOffense" class="form-label">Offense</label>
-                            <input type="text" name="inputoffense" class="form-control" id="inputOffense"placeholder="Arson" 
-                            aria-label="Offender Offense" required>
+                            <select type="text" name="inputoffense" class="form-control" 
+                            aria-label="Offender Gender" value="Select Gender">
+                            <option value="Select Gender" disabled selected>Select Criminal Charge</option>
+                            <option value="Aggravated Assault" >Aggravated Assault</option>
+                            <option value="Arson" >Arson</option>
+                            <option value="Attempt" >Attempt</option>
+                            <option value="Bribery" >Bribery</option>
+                            <option value="Burglary" >Burglary</option>
+                            <option value="Child Abandonment" >Child Abandonment</option>
+                            <option value="Child Pornography" >Child Pornography</option>
+                            <option value="Child Abuse" >Child Abuse</option>
+                            <option value="Computer Crime" >Computer Crime</option>
+                            <option value="Disturbing the Peace" >Disturbing the Peace</option>
+                            <option value="Domestic Violence" >Domestic Violence</option>
+                            <option value="Drug Manufacturing and Cultivation" >Drug Manufacturing and Cultivation</option>
+                            <option value="Drug Possession" >Drug Possession</option>
+                            <option value="Drug Trafficking / Distribution" >Computer Crime</option>
+                            <option value="Embezzlement" >Disturbing the Peace</option>
+                            <option value="Extortion" >Extortion</option>
+                            <option value="Forgery" >Forgery</option>
+                            <option value="Fraud" >Fraud</option>
+                            <option value="Harassment" >Harassment</option>
+                            <option value="Homicide" >Homicide</option>
+                            <option value="Indecent Exposure" >Indecent Exposure</option>
+                            <option value="Insurance Fraud" >Insurance Fraud</option>
+                            <option value="Kidnapping" >Kidnapping</option>
+                            <option value="Manslaughter: Involuntary" >Manslaughter: Involuntary</option>
+                            <option value="Manslaughter: Voluntary" >Manslaughter: Voluntary</option>
+                            <option value="Money Laundering" >Money Laundering</option>
+                            <option value="Murder: First-degree" >Murder: First-degree</option>
+                            <option value="Murder: Second-degree" >Murder: Second-degree</option>
+                            <option value="Perjury" >Perjury</option>
+                            <option value="Probation Violation" >Probation Violation</option>
+                            <option value="Prostitution" >Prostitution</option>
+                            <option value="Public Intoxication" >Public Intoxication</option>
+                            <option value="Pyramid Schemes" >Pyramid Schemes</option>
+                            <option value="Racketeering / RICO" >Racketeering / RICO</option>
+                            <option value="Rape" >Rape</option>
+                            <option value="Robbery" >Robbery</option>
+                            <option value="Securities Fraud" >Securities Fraud</option>
+                            <option value="Sexual Assault" >Sexual Assault</option>
+                            <option value="Shoplifting" >Shoplifting</option>
+                            <option value="Solicitation" >Solicitation</option>
+                            <option value="Stalking" >Stalking</option>
+                            <option value="Statutory Rape" >Statutory Rape</option>
+                            <option value="Tax Evasion / Fraud" >Tax Evasion / Fraud</option>
+                            <option value="Telemarketing Fraud" >Telemarketing Fraud</option>
+                            <option value="Theft" >Theft</option>
+                            <option value="Vandalism" >Vandalism</option>
+                            <option value="White Collar Crimes" >White Collar Crimes</option>
+                            <option value="Wire Fraud" >Wire Fraud</option>
+
+                            </select>
                         </div>
                     </div>
                 </div>

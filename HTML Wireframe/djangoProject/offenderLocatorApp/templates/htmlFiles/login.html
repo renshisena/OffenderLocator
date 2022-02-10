@@ -39,11 +39,11 @@
         <div class="row" style="margin: 5% auto;width: fit-content;">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Login</h1>
+                    <h1>ADMIN LOGIN</h1>
                     <p>Enter required information</p>
                 </div>
             </div>
-            <form onsubmit="event.preventDefault();return false">
+            <form onsubmit="event.preventDefault();return false" >
                 {% csrf_token %}
                 <div class="row" id="nomargin">
                     <div class="col-md-4" id="loginpassword">
@@ -58,11 +58,7 @@
                     </div>
                 </div><div class="row" id="nomargin">
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="login" onclick="validate()">Login</button>
-                    </div>
-                </div><div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <a href="/reset" class="link-light"><em>Set new password here!</em></a>
+                        <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="login">Login</button>
                     </div>
                 </div>
             </form>
