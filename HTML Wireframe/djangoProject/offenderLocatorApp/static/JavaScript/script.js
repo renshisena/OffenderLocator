@@ -98,3 +98,11 @@ function checkSearchAL(){
   }
 
 }
+function addaccount(){
+    let text = "ok add ka haha";
+    if (confirm(text) ==true) {
+      text = "pakyu";
+      window.location.href = '/login'
+      return;
+    }
+}
