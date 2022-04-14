@@ -1,3 +1,4 @@
+from multiprocessing import managers
 from django.urls import path
 from . import views
 app_name='htmlFiles'
@@ -11,5 +12,6 @@ urlpatterns = [
     path('addoffender/',views.addoffender,name='addoffender'),
     path('view_details/',views.view_details, name='view_details'),
     path('registration/',views.registration, name='registrations'),
-    path('records/',views.records, name='records')
+    path('records/',views.records, name='records'),
+    path('account_manager/',views.accountmanager, name='accountmanager')
 ]

@@ -2,11 +2,13 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from datetime import date
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Create your views here.
 
 from django.http import HttpResponse, request
 from .models import *
+
 
 def user_registration(request):
     form = UserCreationForm()
@@ -14,12 +16,14 @@ def user_registration(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            #wala pang method
-            return redirect()
+            messages.success()
+            return redirect(request,'htmlFiles/login.html')
     context = {
         'form':form
     }
     return render(request,'htmlFiles/lookupAdmin.html',context)
+
+
 def homepage(request):
     return render(request, 'htmlFiles/homepage.html')
 
@@ -75,3 +79,6 @@ def registration(request):
     return render(request, 'htmlFiles/registration.html')
 def records(request):
     return render(request, 'htmlFiles/records.html')
+
+def accountmanager(request):
+    return render(request,'htmlFiles/accountmanager.html')
