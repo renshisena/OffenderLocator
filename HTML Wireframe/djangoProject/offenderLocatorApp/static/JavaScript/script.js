@@ -13,6 +13,9 @@ var row = 1;
 var login = document.getElementById("login");
 login.addEventListener("click", validate);
 
+var register = document.getElementById("register");
+register.addEventListener("click", register)
+
 var resetPass = document.getElementById("resetPass");
 resetPass.addEventListener("click", resetPassword);
 
@@ -22,6 +25,10 @@ searchAdmin.addEventListener("click",checkSearchAL);
 var searchLookup = document.getElementById("searchOffenderBtn");
 searchLookup.addEventListener("click",checkSearch);
 
+function register(){
+    window.location.href = '/registration'
+    return;
+}
 
 localStorage.setItem("currentPasswordValue",currentPassword);
 function validate(){

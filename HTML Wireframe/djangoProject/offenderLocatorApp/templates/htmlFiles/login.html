@@ -47,18 +47,19 @@
                 {% csrf_token %}
                 <div class="row" id="nomargin">
                     <div class="col-md-4" id="loginpassword">
-                        <label for="inputLoginPassword">Password :</label>
-                        <input type="password" class="form-control" name="inputLoginPassword" id="inputLoginPassword" placeholder="*********" required>
+                        <label for="inputLoginPassword">Username :</label>
+                        <input type="text" class="form-control" name="inputLoginPassword" id="inputLoginPassword" placeholder="Enter Username here" required>
                     </div>
                 </div>
                 <div class="row" id="nomargin">
                     <div class="col-md-4" id="loginconfirm">
-                        <label for="inputLoginConfirm">Confirm Password :</label>
-                        <input type="password" class="form-control" name="inputLoginConfirm" id="inputLoginConfirm" placeholder="*********" required>
+                        <label for="inputLoginConfirm">Password :</label>
+                        <input type="password" class="form-control" name="inputLoginConfirm" id="inputLoginConfirm" placeholder="Enter Password here" required>
                     </div>
                 </div><div class="row" id="nomargin">
                     <div class="col-md-4">
                         <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="login">Login</button>
+                        <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="register" onclick="/registration">Register</button>
                     </div>
                 </div>
             </form>

@@ -1,13 +1,25 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from datetime import date
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
 from django.http import HttpResponse, request
 from .models import *
 
-
+def user_registration(request):
+    form = UserCreationForm()
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #wala pang method
+            return redirect()
+    context = {
+        'form':form
+    }
+    return render(request,'htmlFiles/lookupAdmin.html',context)
 def homepage(request):
     return render(request, 'htmlFiles/homepage.html')
 
@@ -32,6 +44,7 @@ def lookup(request):
     return render(request, 'htmlFiles/lookup.html', context)
     
 
+
 def adminlookup(request):
     janA1 = request.POST.get('caseStatus')
     janA2 = request.POST.get('getID')
@@ -39,7 +52,6 @@ def adminlookup(request):
     data1 = offenders1.objects.all()
     context = {'data1':data1}
     return render(request, 'htmlFiles/lookupAdmin.html',context)
-
 
 def addoffender(request):
     offender = request.POST.get('inputName')
@@ -59,4 +71,7 @@ def transfer(request):
 def ongoing(request):
     return render(request,'htmlFiles/ongoing.html' )
 
-
+def registration(request):
+    return render(request, 'htmlFiles/registration.html')
+def records(request):
+    return render(request, 'htmlFiles/records.html')
