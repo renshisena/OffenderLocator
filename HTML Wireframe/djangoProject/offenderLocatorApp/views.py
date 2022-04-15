@@ -8,21 +8,21 @@ from django.contrib import messages
 
 from django.http import HttpResponse, request
 from .models import *
+from .forms import UserRegistration
 
 
 def user_registration(request):
-    form = UserCreationForm()
+    form = UserRegistration()
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = UserRegistration(request.POST)
         if form.is_valid():
             form.save()
-            messages.success()
-            return redirect(request,'htmlFiles/login.html')
-    context = {
-        'form':form
-    }
-    return render(request,'htmlFiles/lookupAdmin.html',context)
+            return redirect('/login')
+    context = {'akongform':form}
+    return render(request,'htmlFiles/registration.html',context)
 
+def kunware(request):
+    return render(request, 'htmlFiles/kunware.html')
 
 def homepage(request):
     return render(request, 'htmlFiles/homepage.html')
