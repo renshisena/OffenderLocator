@@ -55,53 +55,63 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <div class="row" style="margin: 5% auto;width: fit-content;">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Register</h1>
-                    <p>Enter required information</p>
+        <div class="row">
+          <div class="col-md-6" style="width: auto; background-color: #151515; border-radius: 5px; color: white">
+            <h1 style="pointer-events: none;">Register</h1>
+            <p style="pointer-events: none;">Enter info here</p>
+            <form method = "POST" action="">
+              {% csrf_token %}
+              {% for field in form %}
+                  {{field}}
+              {% endfor %}
+              <div class="row" id="barangayofficer">
+                <div class="col-md-6">
+                  {{akongform.first_name.label}}
+                </div>
+                <div class="col-md-6" >
+                  {{akongform.first_name}}
+                </div>
+              </div>
+              <div class="row" id="barangayofficer">
+                <div class="col-md-6" >
+                  {{akongform.last_name.label}}
+                </div>
+                <div class="col-md-6" >
+                  {{akongform.last_name}}
+                </div>
+              </div>
+              <div class="row" id="inputUsername">
+                <div class="col-md-6">
+                    {{akongform.username.label}}
+                </div>
+                <div class="col-md-6" >
+                  {{akongform.username}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  {{akongform.password1.label}}
+                </div>
+                <div class="col-md-6">
+                  {{akongform.password1}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  {{akongform.password2.label}}
+                </div>
+                <div class="col-md-6">
+                  {{akongform.password2}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    <input type="submit" class="btn btn-outline-dark" style="margin: auto;" name="Create User"></input>
                 </div>
             </div>
-            <form method = "POST" action="">
-
-                {% csrf_token %}
-                {% for field in form %}
-                    {{field}}
-                {% endfor %}
-                <div class="row" id="nomargin">
-                    <div class="col-md-4" id="barangayofficer">
-                        {{akongform.first_name.label}}
-                        {{akongform.first_name}}
-                    </div>
-                    
-                </div>
-                <div class="col-md-4" id="barangayofficer">
-                  {{akongform.last_name.label}}
-                  {{akongform.last_name}}
-              </div>
-                <div class="row" id="nomargin">
-                    <div class="col-md-4" id="inputUsername">
-                        {{akongform.username.label}}
-                        {{akongform.username}}
-                    </div>
-                <div class="row" id="nomargin">
-                  <div class="col-md-4">
-                    {{akongform.password1.label}}
-                    {{akongform.password1}}
-                  </div>
-                </div>
-                <div class="row" id="nomargin">
-                  <div class="col-md-4">
-                    {{akongform.password2.label}}
-                    {{akongform.password2}}
-                  </div>
-                </div>
-                  <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <input type="submit" class="btn btn-outline-dark" style="margin: auto;" name="Create User"></input>
-                    </div>
-                </div>
             </form>
+          </div>
         </div>
+      </div>
 </body>
 </html>
