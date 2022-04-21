@@ -45,9 +45,9 @@
             <form onsubmit="event.preventDefault();return false" >
                 {% csrf_token %}
                 <div class="row" id="nomargin">
-                    <div class="col-md-4" id="loginpassword">
-                        <label for="inputLoginPassword">Username :</label>
-                        <input type="text" class="form-control" name="inputLoginPassword" id="inputLoginPassword" placeholder="Enter Username here" required>
+                    <div class="col-md-4" >
+                        <label for="inputUsername">Username :</label>
+                        <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Enter Username here" required>
                     </div>
                 </div>
                 <div class="row" id="nomargin">
@@ -61,7 +61,6 @@
                     </div>
                 </div>
             </form>
-            
         </div>      
         
     </div>

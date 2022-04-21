@@ -10,7 +10,10 @@
     <h1>AAAAAAAAUUUUUUUUUUGGGGGGGHHHHHHHH</h1>
     <form method="POST" action ="">
         {% csrf_token %}
-        {{akongform.as_p}}
+        {% for field in akongform %}
+            {{field.label}}
+            {{field}}
+        {% endfor %}
         <input type="submit" name="Create User">
     </form>
 </div>

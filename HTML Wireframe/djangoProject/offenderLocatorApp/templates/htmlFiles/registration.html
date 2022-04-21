@@ -62,33 +62,46 @@
                     <p>Enter required information</p>
                 </div>
             </div>
-            <form onsubmit="event.preventDefault();return false" >
+            <form method = "POST" action="">
+
                 {% csrf_token %}
+                {% for field in form %}
+                    {{field}}
+                {% endfor %}
                 <div class="row" id="nomargin">
                     <div class="col-md-4" id="barangayofficer">
-                        <label for="barangayofficer">Officer's Name :</label>
-                        <input type="text" class="form-control" name="barangayofficer" id="barangayofficer" placeholder="Enter your name here" required>
+                        {{akongform.first_name.label}}
+                        {{akongform.first_name}}
                     </div>
+                    
                 </div>
+                <div class="col-md-4" id="barangayofficer">
+                  {{akongform.last_name.label}}
+                  {{akongform.last_name}}
+              </div>
                 <div class="row" id="nomargin">
                     <div class="col-md-4" id="inputUsername">
-                        <label for="inputUsername">Set Username :</label>
-                        <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Enter Username here" required>
+                        {{akongform.username.label}}
+                        {{akongform.username}}
                     </div>
                 <div class="row" id="nomargin">
                   <div class="col-md-4">
-                    <label for="inputAdminPassword">Set Password :</label>
-                    <input type="text" class="form-control" name="inputAdminPassword" id="inputAdminPassword" placeholder="Enter Password here" required>
+                    {{akongform.password1.label}}
+                    {{akongform.password1}}
+                  </div>
+                </div>
+                <div class="row" id="nomargin">
+                  <div class="col-md-4">
+                    {{akongform.password2.label}}
+                    {{akongform.password2}}
                   </div>
                 </div>
                   <div class="row" id="nomargin">
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="createaccount">Create Account</button>
+                        <input type="submit" class="btn btn-outline-dark" style="margin: auto;" name="Create User"></input>
                     </div>
                 </div>
-              
             </form>
-            
         </div>
 </body>
 </html>

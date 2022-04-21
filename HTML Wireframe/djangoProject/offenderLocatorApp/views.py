@@ -3,22 +3,28 @@ from django.contrib.auth.models import User
 from datetime import date
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from io import BytesIO
 
 # Create your views here.
 
 from django.http import HttpResponse, request
-from .models import *
+from .models import offenders1
 from .forms import UserRegistration
+
+#try print method
 
 
 def user_registration(request):
-    form = UserRegistration()
+    akongform = UserRegistration()
     if request.method == "POST":
-        form = UserRegistration(request.POST)
-        if form.is_valid():
-            form.save()
+        akongform = UserRegistration(request.POST)
+        print('WOW')
+        if akongform.is_valid():
+            akongform.save()
             return redirect('/login')
-    context = {'akongform':form}
+    context = {'akongform':akongform}
     return render(request,'htmlFiles/registration.html',context)
 
 def kunware(request):
@@ -30,7 +36,17 @@ def homepage(request):
 def filecomplaint(request):
     return render(request, 'htmlFiles/filecomplaint.html')
 
+
 def login(request):
+    if request.method ==  'POST':
+        username = request.POST.get('inputUsername')
+        password = request.POST.get('inputPassword')
+        user = authenticate(request, username = username, password = password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('/admin_lookup')
+    context={'user':user}
     return render(request,'htmlFiles/login.html')
 
 def view_details(request):
