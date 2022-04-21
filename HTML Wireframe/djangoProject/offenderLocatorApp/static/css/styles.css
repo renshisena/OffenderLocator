@@ -84,17 +84,8 @@ p:hover{
     background-color: #151515;
 }
 
-.col-md-6{
+.col-md-4, .col-md-6, .col-md-8, .col-md-10, .col-md-12{
     margin: 2% auto;
-}
-
-.col-md-4{
-    margin: 2% auto;
-    width: fit-content;
-}
-
-.container-fluid{
-    padding: 0;
 }
 
 .navbar-brand a, .navbar-nav.ms-auto.text-center li a{
