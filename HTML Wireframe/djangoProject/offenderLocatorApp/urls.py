@@ -14,5 +14,4 @@ urlpatterns = [
     path('registration/',views.user_registration, name='registration'),
     path('records/',views.records, name='records'),
     path('account_manager/',views.accountmanager, name='accountmanager'),
-    path('kunware/',views.kunware, name='kunware')
 ]

@@ -45,12 +45,7 @@
         </button>
         <div class="collapse navbar-collapse" id="hamburger">
           <ul class="navbar-nav ms-auto text-center">
-            <li><a class="nav-link" href="/">Home</a></li>
-            <li><a class="nav-link" href="/lookup">Lookup</a></li>
-            <li>
-              <a class="nav-link" href="/filecomplaint">File a complaint</a>
-            </li>
-            <li><a class="nav-link" href="/login">Admin</a></li>
+            <li><a class="nav-link" href="/account_manager">Go back to Account Manager</a></li>
           </ul>
         </div>
       </nav>
@@ -66,42 +61,42 @@
               {% endfor %}
               <div class="row" id="barangayofficer">
                 <div class="col-md-6">
-                  {{akongform.first_name.label}}
+                  {{registerForm.first_name.label}}
                 </div>
                 <div class="col-md-6" >
-                  {{akongform.first_name}}
+                  {{registerForm.first_name}}
                 </div>
               </div>
               <div class="row" id="barangayofficer">
                 <div class="col-md-6" >
-                  {{akongform.last_name.label}}
+                  {{registerForm.last_name.label}}
                 </div>
                 <div class="col-md-6" >
-                  {{akongform.last_name}}
+                  {{registerForm.last_name}}
                 </div>
               </div>
               <div class="row" id="inputUsername">
                 <div class="col-md-6">
-                    {{akongform.username.label}}
+                    {{registerForm.username.label}}
                 </div>
                 <div class="col-md-6" >
-                  {{akongform.username}}
+                  {{registerForm.username}}
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  {{akongform.password1.label}}
+                  {{registerForm.password1.label}}
                 </div>
                 <div class="col-md-6">
-                  {{akongform.password1}}
+                  {{registerForm.password1}}
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  {{akongform.password2.label}}
+                  {{registerForm.password2.label}}
                 </div>
                 <div class="col-md-6">
-                  {{akongform.password2}}
+                  {{registerForm.password2}}
                 </div>
               </div>
               <div class="row">
@@ -110,8 +105,16 @@
                 </div>
             </div>
             </form>
+            <hr>
+        <h3>Password Guidelines:</h3>
+        <li>Your password can't be too similar to your other personal information.</li>
+        <li>Your password must contain at least 8 characters.</li>
+        <li>Your password can't be a commonly used password.</li>
+        <li>Your password can't be entirely numeric.</li>
           </div>
         </div>
+        
       </div>
+        
 </body>
 </html>

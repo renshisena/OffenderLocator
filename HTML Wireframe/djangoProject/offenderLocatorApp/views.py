@@ -17,18 +17,15 @@ from .forms import UserRegistration
 
 
 def user_registration(request):
-    akongform = UserRegistration()
+    registerForm = UserRegistration()
     if request.method == "POST":
-        akongform = UserRegistration(request.POST)
+        registerForm = UserRegistration(request.POST)
         print('WOW')
-        if akongform.is_valid():
-            akongform.save()
+        if registerForm.is_valid():
+            registerForm.save()
             return redirect('/login')
-    context = {'akongform':akongform}
+    context = {'registerForm':registerForm}
     return render(request,'htmlFiles/registration.html',context)
-
-def kunware(request):
-    return render(request, 'htmlFiles/kunware.html')
 
 def homepage(request):
     return render(request, 'htmlFiles/homepage.html')
@@ -38,15 +35,15 @@ def filecomplaint(request):
 
 
 def login(request):
-    if request.method ==  'POST':
-        username = request.POST.get('inputUsername')
-        password = request.POST.get('inputPassword')
-        user = authenticate(request, username = username, password = password)
-        
-        if user is not None:
-            login(request, user)
-            return redirect('/admin_lookup')
-    context={'user':user}
+    # if request.method ==  'POST':
+    #     username = request.POST.get('inputUsername')
+    #     password = request.POST.get('inputPassword')
+    #     user = authenticate(request, username = username, password = password)
+    #     print("wowzers")
+    #     if user is not None:
+    #         login(request, user)
+    #         return redirect('/admin_lookup')
+    # context={}
     return render(request,'htmlFiles/login.html')
 
 def view_details(request):
@@ -97,4 +94,6 @@ def records(request):
     return render(request, 'htmlFiles/records.html')
 
 def accountmanager(request):
-    return render(request,'htmlFiles/accountmanager.html')
+    data = User.objects.all()
+    context = {'data':data}
+    return render(request,'htmlFiles/accountmanager.html',context)

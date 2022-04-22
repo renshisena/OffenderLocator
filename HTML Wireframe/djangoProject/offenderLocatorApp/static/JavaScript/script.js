@@ -32,12 +32,12 @@ function register(){
 
 localStorage.setItem("currentPasswordValue",currentPassword);
 function validate(){
-    var inputLoginP = document.getElementById("inputLoginPassword").value;
+    var inputLoginP = document.getElementById("inputUsername").value;
     var inputLoginC = document.getElementById("inputLoginConfirm").value; 
     
     if (inputLoginP == currentPassword && inputLoginC == currentPassword){
         alert("Logged-in Successfully");
-        window.location.href = '/admin_lookup'
+        window.location.href = '/account_manager'
         return false;
         } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
             alert("Incorrect password!")
