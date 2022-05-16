@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from datetime import date
@@ -34,17 +35,19 @@ def filecomplaint(request):
     return render(request, 'htmlFiles/filecomplaint.html')
 
 
-def login(request):
-    # if request.method ==  'POST':
-    #     username = request.POST.get('inputUsername')
-    #     password = request.POST.get('inputPassword')
-    #     user = authenticate(request, username = username, password = password)
-    #     print("wowzers")
-    #     if user is not None:
-    #         login(request, user)
-    #         return redirect('/admin_lookup')
-    # context={}
-    return render(request,'htmlFiles/login.html')
+def loginpage(request):
+    if request.method == 'POST':
+        username = request.POST.get('inputUsername')
+        password =request.POST.get('inputLoginConfirm')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/admin_lookup')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
+    context = {}
+    return render(request, 'htmlFiles/login.html', context)
+
 
 def view_details(request):
     return render(request,'htmlFiles/viewdatails.html')
@@ -87,12 +90,12 @@ def transfer(request):
      return render(request,'htmlFiles/transfer.html' )
 def ongoing(request):
     return render(request,'htmlFiles/ongoing.html' )
-
 def registration(request):
     return render(request, 'htmlFiles/registration.html')
 def records(request):
     return render(request, 'htmlFiles/records.html')
-
+def about(request):
+    return render(request, 'htmlFiles/about.html')
 def accountmanager(request):
     data = User.objects.all()
     context = {'data':data}

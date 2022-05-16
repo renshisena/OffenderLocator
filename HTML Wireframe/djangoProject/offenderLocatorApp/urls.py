@@ -1,12 +1,15 @@
 from multiprocessing import managers
+from re import template
 from django.urls import path
+from mysqlx import Auth
 from . import views
+from django.contrib.auth import views as auth_view
 app_name='htmlFiles'
 
 urlpatterns = [
     path('', views.homepage, name='home'),
     path('filecomplaint/', views.filecomplaint, name='filecomplaint'),
-    path('login/', views.login, name='login'),
+    path('login/', views.loginpage, name ='login'),
     path('lookup/', views.lookup, name='lookup'),
     path('admin_lookup/', views.adminlookup, name='admin_lookup'),
     path('addoffender/',views.addoffender,name='addoffender'),
@@ -14,4 +17,5 @@ urlpatterns = [
     path('registration/',views.user_registration, name='registration'),
     path('records/',views.records, name='records'),
     path('account_manager/',views.accountmanager, name='accountmanager'),
+    path('about/',views.about, name='about')
 ]

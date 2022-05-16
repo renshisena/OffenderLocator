@@ -30,20 +30,20 @@ function register(){
     return;
 }
 
-localStorage.setItem("currentPasswordValue",currentPassword);
-function validate(){
-    var inputLoginP = document.getElementById("inputUsername").value;
-    var inputLoginC = document.getElementById("inputLoginConfirm").value; 
+// localStorage.setItem("currentPasswordValue",currentPassword);
+// function validate(){
+//     var inputLoginP = document.getElementById("inputUsername").value;
+//     var inputLoginC = document.getElementById("inputLoginConfirm").value; 
     
-    if (inputLoginP == currentPassword && inputLoginC == currentPassword){
-        alert("Logged-in Successfully");
-        window.location.href = '/account_manager'
-        return false;
-        } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
-            alert("Incorrect password!")
-            return false;
-        }
-    }  
+//     if (inputLoginP == currentPassword && inputLoginC == currentPassword){
+//         alert("Logged-in Successfully");
+//         window.location.href = '/account_manager'
+//         return false;
+//         } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
+//             alert("Incorrect password!")
+//             return false;
+//         }
+//     }  
 function checkSearch(){
   var inputName,filter,table, tr, td, i, txtValue;
   inputName = document.getElementById("searchName");
@@ -99,9 +99,9 @@ function checkSearchAL(){
 
 }
 function addaccount(){
-    let text = "ok add ka haha";
+    let text = "haha";
     if (confirm(text) ==true) {
-      text = "pakyu";
+      text = "Woah";
       window.location.href = '/login'
       return;
     }
