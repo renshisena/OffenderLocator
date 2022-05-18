@@ -1,9 +1,11 @@
 from multiprocessing import managers
 from re import template
+from django.conf import settings
 from django.urls import path
 from mysqlx import Auth
 from . import views
 from django.contrib.auth import views as auth_view
+from django.conf.urls.static import static
 app_name='htmlFiles'
 
 urlpatterns = [
@@ -17,5 +19,5 @@ urlpatterns = [
     path('registration/',views.user_registration, name='registration'),
     path('records/',views.records, name='records'),
     path('account_manager/',views.accountmanager, name='accountmanager'),
-    path('about/',views.about, name='about')
-]
+    path('about/',views.about, name='about'),
+]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

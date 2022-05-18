@@ -23,4 +23,5 @@ class offenders1(models.Model):
     offense = models.CharField(max_length=45, verbose_name='offense')
     caseStatus = models.CharField(max_length=11, choices=status, default='Ongoing')
     caseDescription = models.TextField(max_length = 400,null = TRUE,verbose_name='caseDescription')
+    offenderPic = models.ImageField(null=TRUE, blank = TRUE,upload_to="images/")
     datenow = models.CharField(max_length = 45,verbose_name='datenow',null=FALSE)
