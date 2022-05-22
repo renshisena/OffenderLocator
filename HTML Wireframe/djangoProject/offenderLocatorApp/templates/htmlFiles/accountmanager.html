@@ -93,7 +93,13 @@
               <td>{{items.username}}</th>
               <td>{{items.first_name}}</td>
               <td>{{items.last_name}}</td>
-              <td><button>Remove</button></td>
+              <form action="" method="post">
+              {% csrf_token %}
+              <td>
+                <input type="hidden" name="getbarangayID" value="{{items.id}}">
+                <button type ="submit" href="/deleteuser">Delete</button>
+              </td>
+              </form>
             </tr>
             {% endfor %}
         </tbody>

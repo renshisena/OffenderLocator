@@ -64,7 +64,6 @@ def lookup(request):
     return render(request, 'htmlFiles/lookup.html', context)
     
 
-
 def adminlookup(request):
     janA1 = request.POST.get('caseStatus')
     janA2 = request.POST.get('getID')
@@ -97,6 +96,8 @@ def records(request):
 def about(request):
     return render(request, 'htmlFiles/about.html')
 def accountmanager(request):
+    barangayID = request.POST.get('getbarangayID')
+    User.objects.filter(id=barangayID).delete()
     data = User.objects.all()
     context = {'data':data}
     return render(request,'htmlFiles/accountmanager.html',context)
