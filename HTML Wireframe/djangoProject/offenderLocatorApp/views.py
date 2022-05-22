@@ -24,7 +24,7 @@ def user_registration(request):
         print('WOW')
         if registerForm.is_valid():
             registerForm.save()
-            return redirect('/login')
+            return redirect('/account_manager')
     context = {'registerForm':registerForm}
     return render(request,'htmlFiles/registration.html',context)
 
