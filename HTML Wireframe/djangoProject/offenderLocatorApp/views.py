@@ -44,6 +44,7 @@ def loginpage(request):
         if username == adminuser:
             login(request, user)
             return redirect('/account_manager')
+        
         if user is not None:
             login(request, user)
             return redirect('/admin_lookup')
