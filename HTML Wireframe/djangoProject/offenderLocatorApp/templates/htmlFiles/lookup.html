@@ -47,9 +47,9 @@
       <div class="collapse navbar-collapse" id="hamburger">
         <ul class="navbar-nav ms-auto text-center">
           <li><a class="nav-link" href="/">Home</a></li>
-          <li><a class="nav-link" href="/lookup"onclick="">About</a></li>
+          <li><a class="nav-link" href="/about">About</a></li>
           <li><a class="nav-link" href="/lookup">Lookup</a></li>
-          <li><a class="nav-link" href="/login">Admin</a></li>
+          <li><a class="nav-link" href="/admin_lookup">Admin</a></li>
         </ul>
       </div>
     </nav>
@@ -129,7 +129,6 @@
                 <td>{{items.caseStatus}}</td>
                 <td>{{items.datenow}}</td>
                 <td>
-                  {% comment %} <a type="submit" class="btn btn-primary">View Details</a> {% endcomment %}
                   <button name="submitBtn" value="{{items.id}}" type="submit" class="btn btn-primary">View Details </button>
                 </td>
               </tr>

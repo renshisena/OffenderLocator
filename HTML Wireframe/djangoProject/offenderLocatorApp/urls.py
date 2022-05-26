@@ -20,4 +20,5 @@ urlpatterns = [
     path('records/',views.records, name='records'),
     path('account_manager/',views.accountmanager, name='accountmanager'),
     path('about/',views.about, name='about'),
+    path('logout/',views.logoutUser, name='logout'),
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

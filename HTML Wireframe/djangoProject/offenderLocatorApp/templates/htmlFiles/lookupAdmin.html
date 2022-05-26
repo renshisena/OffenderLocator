@@ -41,16 +41,15 @@
       </button>
       <div class="collapse navbar-collapse" id="hamburger">
         <ul class="navbar-nav ms-auto text-center">
-          <li><a class="nav-link" href="/" onclick="logout()">Home</a></li>
-          <li><a class="nav-link" href="/lookup"onclick="logout()">Lookup</a></li>
-          <li><a class="nav-link" href="/filecomplaint"onclick="logout()">File a complaint</a></li>
+          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
           
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
             </button>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-              <li><a id="signout"class="dropdown-item" onclick="logout()" selected>Sign Out</a></li>
+              <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
             </ul>
           </div>
         </ul>

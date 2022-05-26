@@ -19,21 +19,28 @@
 
 <body>
     <div class="container-fluid">
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Offender Locator</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
                 aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="hamburger">
-                <ul class="navbar-nav ms-auto text-center">
-                  <li><a class="nav-link" href="/">Home</a></li>
-                  <li><a class="nav-link" href="/lookup">Lookup</a></li>
-                  <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
-                  <li><a class="nav-link" href="/login">Admin</a></li>
-                </ul>
+              <ul class="navbar-nav ms-auto text-center">
+                <li><a class="nav-link" href="/">Home</a></li>
+                <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
+                
+                <div class="btn-group">
+                  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                    <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
+                  </ul>
+                </div>
+              </ul>
             </div>
-        </nav>
+          </nav>
         <div class="row" style="margin: auto;">
             <div class="col-md-12">
                 <h1 style="margin: 2% auto;">File A Complaint</h1>
@@ -72,7 +79,7 @@
                         <div class="col-md-12" id="offense">
                             <select type="text" name="inputoffense" class="form-control" 
                             aria-label="Offender Gender" value="Select Gender">
-                            <option value="Select Gender" disabled selected>Select Criminal Charge</option>
+                            <option value ="Select Gender" disabled selected>Select Criminal Charge</option>
                             <option value="Aggravated Assault" >Aggravated Assault</option>
                             <option value="Arson" >Arson</option>
                             <option value="Attempt" >Attempt</option>

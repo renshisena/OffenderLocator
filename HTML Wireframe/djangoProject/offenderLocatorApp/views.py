@@ -31,23 +31,30 @@ def user_registration(request):
 def homepage(request):
     return render(request, 'htmlFiles/homepage.html')
 
+@login_required(login_url='/login')
 def filecomplaint(request):
     return render(request, 'htmlFiles/filecomplaint.html')
-
 
 def loginpage(request):
     if request.method == 'POST':
         username = request.POST.get('inputUsername')
         password =request.POST.get('inputLoginConfirm')
         user = authenticate(request, username=username, password=password)
+        adminuser = 'admin'
+        if username == adminuser:
+            login(request, user)
+            return redirect('/account_manager')
         if user is not None:
             login(request, user)
             return redirect('/admin_lookup')
         else:
-            messages.info(request, 'Username OR password is incorrect')
+            messages.info(request, 'Username or password is incorrect.')
     context = {}
     return render(request, 'htmlFiles/login.html', context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('/login')
 
 def view_details(request):
     return render(request,'htmlFiles/viewdatails.html')
@@ -63,7 +70,7 @@ def lookup(request):
         return render(request, 'htmlFiles/viewdetails.html', context)
     return render(request, 'htmlFiles/lookup.html', context)
     
-
+@login_required(login_url='/login')
 def adminlookup(request):
     janA1 = request.POST.get('caseStatus')
     janA2 = request.POST.get('getID')
@@ -95,6 +102,8 @@ def records(request):
     return render(request, 'htmlFiles/records.html')
 def about(request):
     return render(request, 'htmlFiles/about.html')
+
+@login_required(login_url='/login')
 def accountmanager(request):
     barangayID = request.POST.get('getbarangayID')
     User.objects.filter(id=barangayID).delete()

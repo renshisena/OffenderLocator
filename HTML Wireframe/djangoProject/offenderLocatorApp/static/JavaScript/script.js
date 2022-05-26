@@ -29,21 +29,6 @@ function register(){
     window.location.href = '/registration'
     return;
 }
-
-// localStorage.setItem("currentPasswordValue",currentPassword);
-// function validate(){
-//     var inputLoginP = document.getElementById("inputUsername").value;
-//     var inputLoginC = document.getElementById("inputLoginConfirm").value; 
-    
-//     if (inputLoginP == currentPassword && inputLoginC == currentPassword){
-//         alert("Logged-in Successfully");
-//         window.location.href = '/account_manager'
-//         return false;
-//         } if (inputLoginP != currentPassword || inputLoginC != currentPassword){
-//             alert("Incorrect password!")
-//             return false;
-//         }
-//     }  
 function checkSearch(){
   var inputName,filter,table, tr, td, i, txtValue;
   inputName = document.getElementById("searchName");
@@ -86,18 +71,7 @@ function checkSearchAL(){
       }
     }
 
-  function logout(){
-    let text = "Are you sure do you want to leave?";
-  if (confirm(text) == true) {
-    text = "Logging Out!";
-    window.location.href = '/login'
-    return;
-  } else {
-    text = "Canceled Operation";
-    return;
-  }
 
-}
 function addaccount(){
     let text = "haha";
     if (confirm(text) ==true) {
