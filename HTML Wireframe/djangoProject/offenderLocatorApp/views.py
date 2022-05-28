@@ -45,12 +45,8 @@ def loginpage(request):
         password =request.POST.get('inputLoginConfirm')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            if username =='admin':
-                login(request, user)
-                return redirect('/account_manager') 
-            else: 
-                login(request, user)
-                return redirect('/admin_lookup')
+            login(request, user)
+            return redirect('/admin_lookup')
         else:
             messages.info(request, 'Username or password is incorrect.')
     context = {}
