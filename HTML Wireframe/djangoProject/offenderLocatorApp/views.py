@@ -19,12 +19,16 @@ from .forms import UserRegistration
 
 def user_registration(request):
     registerForm = UserRegistration()
-    if request.method == "POST":
-        registerForm = UserRegistration(request.POST)
-        print('WOW')
-        if registerForm.is_valid():
-            registerForm.save()
-            return redirect('/account_manager')
+    authcodes = request.POST.get('authorizationcode')
+    authcode = 'admin123'
+    if authcodes == authcode:
+        if request.method == "POST":
+            registerForm = UserRegistration(request.POST)
+            print('WOW')
+            if registerForm.is_valid():
+                registerForm.save()
+                return redirect('/login')
+
     context = {'registerForm':registerForm}
     return render(request,'htmlFiles/registration.html',context)
 
@@ -40,14 +44,13 @@ def loginpage(request):
         username = request.POST.get('inputUsername')
         password =request.POST.get('inputLoginConfirm')
         user = authenticate(request, username=username, password=password)
-        adminuser = 'admin'
-        if username == adminuser:
-            login(request, user)
-            return redirect('/account_manager')
-        
         if user is not None:
-            login(request, user)
-            return redirect('/admin_lookup')
+            if username =='admin':
+                login(request, user)
+                return redirect('/account_manager') 
+            else: 
+                login(request, user)
+                return redirect('/admin_lookup')
         else:
             messages.info(request, 'Username or password is incorrect.')
     context = {}

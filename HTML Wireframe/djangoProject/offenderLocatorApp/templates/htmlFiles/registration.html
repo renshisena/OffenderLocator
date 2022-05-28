@@ -45,7 +45,7 @@
         </button>
         <div class="collapse navbar-collapse" id="hamburger">
           <ul class="navbar-nav ms-auto text-center">
-            <li><a class="nav-link" href="/account_manager">Go back to Account Manager</a></li>
+            <li><a class="nav-link" href="/login">Go back to Login</a></li>
           </ul>
         </div>
       </nav>
@@ -99,11 +99,24 @@
                   {{registerForm.password2}}
                 </div>
               </div>
+              <div class="col-md-6">
+                <input
+              type="password"
+              class="form-control"
+              name="authorizationcode"
+              id="authcode"
+              placeholder="Authoriation Code"
+              required
+            />
+              </div>
               <div class="row">
                 <div class="col-md-6">
                     <input type="submit" class="btn btn-outline-dark" style="margin: auto;" name="Create User"></input>
                 </div>
             </div>
+            <h3>{%for msg in messages %}
+              {{msg}}
+          {% endfor %}</h3>
             </form>
             <hr>
         <h3>Password Guidelines:</h3>

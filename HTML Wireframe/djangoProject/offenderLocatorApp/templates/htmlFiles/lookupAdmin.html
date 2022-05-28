@@ -34,16 +34,17 @@
 </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">Offender Locator</a>
+      <a class="navbar-brand">Offender Locator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
           aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="hamburger">
         <ul class="navbar-nav ms-auto text-center">
-          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link" href="/admin_lookup">Offenders</a></li>
           <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
-          
+          <li><a class="nav-link" href="/account_manager">Account Manager</a></li>
+    
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
