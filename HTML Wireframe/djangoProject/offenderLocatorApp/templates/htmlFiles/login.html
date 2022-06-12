@@ -37,39 +37,41 @@
     </nav>
 
     <div class="container-fluid">
-        <div class="row" style="margin: 5% auto;width: fit-content;">
+        <div class="row" style="margin: 2% auto;width: fit-content; background-color: #151515; border-radius: 5px; color: white" >
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <h1>ADMIN LOGIN</h1>
                     <p>Enter required information</p>
                 </div>
             </div>
             {% comment %} <form onsubmit="event.preventDefault();return false" > {% endcomment %}
-            
-            <form action="" method="POST">   
-                {% csrf_token %}
-                <div class="row" id="nomargin">
-                    <div class="col-md-4" >
-                        <label for="inputUsername">Username :</label>
-                        <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Enter Username here" required>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="" method="POST">   
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6" id="loginusername">
+                                    <label for="inputUsername">Username :</label>
+                                    <input type="text" class="form-control" name="inputUsername" id="inputUsername" placeholder="Enter Username here" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" id="loginconfirm">
+                                    <label for="inputLoginConfirm">Password :</label>
+                                    <input type="password" class="form-control" name="inputLoginConfirm" id="inputLoginConfirm" placeholder="Enter Password here" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="login">Login</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="/registration" class="link-light"><em>Barangay Official Register</em></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="row" id="nomargin">
-                    <div class="col-md-4" id="loginconfirm">
-                        <label for="inputLoginConfirm">Password :</label>
-                        <input type="password" class="form-control" name="inputLoginConfirm" id="inputLoginConfirm" placeholder="Enter Password here" required>
-                    </div>
-                </div><div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-outline-dark" style="margin: auto;" id="login">Login</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <a href="/registration" class="link-light"><em>Barangay Official Register</em></a>
-                </div>
-            </form>
-        
-
         </div>      
         <h3>{%for msg in messages %}
             {{msg}}

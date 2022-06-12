@@ -15,7 +15,7 @@
   
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   
-  <title>Offender Locator Admin Lookup</title>
+  <title>Admin - Lookup</title>
   <style>
 
   body, html{
@@ -33,7 +33,7 @@
   </style>
 </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
       <a class="navbar-brand">Offender Locator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
           aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
     </nav>
     <hr>
     <div class="container-lg">
-      <h2>Directions:</h2>
+      <h3>Directions:</h3>
       <li>
         Search for an offender's location and release date if they are
         incarcerated and under the custody of the Barangay Anabu II-F City Hall,
@@ -77,12 +77,16 @@
             <label for="searchALname" style="color: #eeee;">Offender's Full Name:</label>
             <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="John Doe" required>
           </div>
+        <div>
+          <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearch()">
+            <i class="fas fa-search"></i> Search
+          </button>
         </div>
-        <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearchAL()"><i class="fas fa-search"></i> Search</button>
-      </div>
       </form>
+    </div>
+    </div>
       
-    <hr style="margin-top: 5%;">
+    <hr>
     <div class="container-lg">
       <h2>SEARCH RESULTS:</h2>
       <div class="table-responsive-admin">
@@ -90,7 +94,7 @@
 
   <div class="card-body">
     <div class="table-editable">
-      <table class="table table-dark table-striped" id="adminTable"> 
+      <table class="table table-hover" id="adminTable"> 
         <thead>
           <tr>
             <th class="text-center">Offender's Name</th>
@@ -113,7 +117,8 @@
               <td>{{items.offense}}</td>
               <form action="" method="post">
                 {% csrf_token %}
-              <td><select name="caseStatus" id="">
+              <td><select name="caseStatus" id="" style="background-color: #151515;
+                color: #EEEEEE;">
                 <option value="{{items.caseStatus}}" disabled selected>{{items.caseStatus}}</option>
                 <option value="Ongoing">Ongoing</option>
                 <option value="Released">Released</option>

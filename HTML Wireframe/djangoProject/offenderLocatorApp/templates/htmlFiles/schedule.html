@@ -15,7 +15,7 @@
   
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   
-  <title>Offender Locator Admin Lookup</title>
+  <title>Scheduling</title>
   <style>
 
   body, html{
@@ -33,7 +33,7 @@
   </style>
 </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
       <a class="navbar-brand">Offender Locator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
           aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,15 +58,14 @@
     </nav>
     <hr>
     <div class="container-lg">
-      <h2>Directions:</h2>
+      <h3>Directions:</h3>
       <li>
-        Search for an offender's location and release date if they are
-        incarcerated and under the custody of the Barangay Anabu II-F City Hall,
-        Imus city of Cavite. Offenders who are not under Anabu II-F custody will
+        Enter the name of the offender to set up a meeting with their complanant. 
+        Offenders who are not under Anabu II-F custody will
         not appear in the search results.
       </li>
-      <li>Type the Full name of the Offender.</li>
       <li>Click the search button to see results.</li>
+      <li>Choose whether to set a schedule or email them</li>
       <hr>
       <h2>Required Information</h2>
 
@@ -76,12 +75,13 @@
             <label for="searchALname" style="color: #eeee;">Offender's Full Name:</label>
             <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="John Doe" required>
           </div>
+          <div>
+            <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearchAL()"><i class="fas fa-search"></i> Search</button>
+          </div>
         </div>
-        <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearchAL()"><i class="fas fa-search"></i> Search</button>
-      </div>
       </form>
       
-    <hr style="margin-top: 5%;">
+    <hr>
     <div class="container-lg">
       <h2>SEARCH RESULTS:</h2>
       <div class="table-responsive-admin">
@@ -89,7 +89,7 @@
 
   <div class="card-body">
     <div class="table-editable">
-      <table class="table table-dark table-striped" id="adminTable"> 
+      <table class="table table-hover" id="adminTable"> 
         <thead>
           <tr>
             <th class="text-center">Offender's Name</th>
@@ -122,7 +122,7 @@
             
             <div class="modal fade" id="modalOut{{ items.id }}" tabindex="-1" role="dialog" aria-labelledby="modalOut" aria-hidden="true">
               <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" style="background-color: #333333; color: #eeeeee;">
                   <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Set Schedule: </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -134,18 +134,19 @@
                         <input type="hidden" name="id" value="{{ items.id }}">
                         <input type="hidden" name="complainantName" value="{{ items.complainant }}">
                         <input type="hidden" name="complainantEmail1" value="{{ items.complainantEmail }}">
-                        <label for="">Name of Complainant:</label>
+                        
+                        <label for="" >Name of Complainant:</label>
                         <h3>{{ items.complainant }}</h3>
                         <label for="">Complainant's email:</label>
                         <h3>{{ items.complainantEmail }}</h3>
                         <br>
-                        <label for="datepicker" class="form-label">Date</label>
-                        <input name= "datepicker" type="date" class="form-control" id="datepicker" style="background-color: white; color:black;" placeholder="Set Date"
+                        <label for="datepicker" class="form-label" id="datepicker">Date</label>
+                        <input name= "datepicker" type="date" class="form-control" id="datepicker" style="background-color: #707070; color:#eeeeee;" placeholder="Set Date"
                         aria-label="Date" required>
                         <label for="time" class="form-label">Time</label>
                                 <br>
                                 <select type="text" name="selectedTime" class="form-control" 
-                                aria-label="Set Time" value="Set Time">
+                                aria-label="Set Time" value="Set Time" style="background-color: #707070; color:#eeeeee;">
                                 <option value="Set Time" disabled selected>Set Time</option>
                                 <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
                                 <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
@@ -185,6 +186,11 @@
       </p>
     </div>
 
+
+  <script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("datepicker")[0].setAttribute('min', today);
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
   crossorigin="anonymous"> </script>

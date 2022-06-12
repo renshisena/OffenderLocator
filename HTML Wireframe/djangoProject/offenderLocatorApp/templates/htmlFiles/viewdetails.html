@@ -17,96 +17,94 @@
 </style> -->
 <body>
 
-    <div class="container-fluid">
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">Offender Locator</a>
-            <ul class="navbar-nav ms-auto text-center">
-                <li><a class="nav-link" href="" onclick="printRelease()"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></a></li>
-        </nav>
-        
-        <div class="row" id="nomargin">
-            <div class="col-md-12">
-                <h2>CASE DETAILS</h2>
-            </div>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">Offender Locator</a>
+        <ul class="navbar-nav ms-auto text-center">
+            <li><a class="nav-link" href="" onclick="printRelease()"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></a></li>
+    </nav>
+    
+    <div class="row" id="nomargin">
+        <div class="col-md-12">
+            <h2>CASE DETAILS</h2>
         </div>
-        {% for data in tableoff %}
-        <div class="row" id="nomargin" id="nomargin">
-            <div class="col-md-5">
-                <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <p><strong>Name: </strong> </p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>{{data.offender}}</p>
-                    </div> 
+    </div>
+    {% for data in tableoff %}
+    <div class="row" id="nomargin" id="nomargin">
+        <div class="col-md-5">
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Name: </strong> </p>
                 </div>
-                <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <p><strong>Age:</strong>
-                    </div>
-                    <div class="col-md-6">
-                        <p>{{data.age}}</p>
-                    </div>
+                <div class="col-md-6">
+                    <p>{{data.offender}}</p>
+                </div> 
+            </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Age:</strong>
                 </div>
-                <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <p><strong>Gender:</strong>
-                    </div>
-                    <div class="col-md-6">
-                        <p>{{data.gender}}</p> 
-                    </div>
-                </div>
-                <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <p><strong>Case ID:</strong>
-                    </div>
-                    <div class="col-md-6">
-                        <p>{{data.id}}</p>
-                    </div>
-                </div>
-                <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <p><strong>Case:</strong>
-                    </div>
-                    <div class="col-md-6">
-                        <p>{{data.offense}}</p>
-                    </div>
-                </div>
-                <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <p><strong>Case:</strong>
-                    </div>
-                    <div class="col-md-6">
-                        <p>{{data.caseStatus}}</p>
-                    </div>
+                <div class="col-md-6">
+                    <p>{{data.age}}</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="row" id="nomargin">
-                    <div class="col-md-4">
-                        <p><strong>Date of Complaint: {{data.datenow}}</strong>
-                    </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Gender:</strong>
+                </div>
+                <div class="col-md-6">
+                    <p>{{data.gender}}</p> 
+                </div>
+            </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Case ID:</strong>
+                </div>
+                <div class="col-md-6">
+                    <p>{{data.id}}</p>
+                </div>
+            </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Case:</strong>
+                </div>
+                <div class="col-md-6">
+                    <p>{{data.offense}}</p>
+                </div>
+            </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Case:</strong>
+                </div>
+                <div class="col-md-6">
+                    <p>{{data.caseStatus}}</p>
                 </div>
             </div>
         </div>
-        
-        <h3>Case Description:</h3>
-            <p>{{data.caseDescription}}</p>    
-        {% endfor %}
+        <div class="col-md-6">
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Date of Complaint: {{data.datenow}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3>Case Description:</h3>
+        <p>{{data.caseDescription}}</p>    
+    {% endfor %}
 
-        <div class="row" id="nomargin">
-            <div class="col-md-4">
-                <p>__________________________</p>
-                <p>Accused</p>
-            </div>
-            <div class="col-md-4">
-                <p>__________________________</p>
-                <p>Barangay Captain</p>
-            </div>
-            <div class="col-md-4">
-                <p>__________________________</p>
-                <p>Complainant</p>
-            </div>
+    <div class="row" id="nomargin">
+        <div class="col-md-4">
+            <p>__________________________</p>
+            <p>Accused</p>
+        </div>
+        <div class="col-md-4">
+            <p>__________________________</p>
+            <p>Barangay Captain</p>
+        </div>
+        <div class="col-md-4">
+            <p>__________________________</p>
+            <p>Complainant</p>
         </div>
     </div>
 

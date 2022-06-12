@@ -15,161 +15,165 @@
     
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>File A Complaint</title>
+    
+    <style>
+        body, html{
+            background-color:#164a41;
+            }
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand">Offender Locator</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
-                aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="hamburger">
-              <ul class="navbar-nav ms-auto text-center">
-                <li><a class="nav-link" href="/admin_lookup">Offenders</a></li>
-                <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
-                <li><a class="nav-link" href="/account_manager">Account Manager</a></li>
-                
-                <div class="btn-group">
-                  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                    <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
-                  </ul>
-                </div>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand">Offender Locator</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
+            aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="hamburger">
+          <ul class="navbar-nav ms-auto text-center">
+            <li><a class="nav-link" href="/admin_lookup">Offenders</a></li>
+            <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
+            <li><a class="nav-link" href="/schedule">Schedule</a></li>
+            <li><a class="nav-link" href="/account_manager">Account Manager</a></li>
+            
+            <div class="btn-group">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
               </ul>
             </div>
-          </nav>
-        <div class="row" style="margin: auto;">
-            <div class="col-md-12">
-                <h1 style="margin: 2% auto;">File A Complaint</h1>
-            </div>
+          </ul>
         </div>
-        <div >
-            <form class="row" style="text-align: left; margin: auto;" action = "{% url 'htmlFiles:addoffender' %}" method = "POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <legend style="color: #EEEEEE">Offender Details</legend>
-                <div class="col-md-6" style="margin: auto;">
-                    <div class="row" id="nomargin">
-                        <div class="col-md-12" id="fname">
-                            <label for="inputFname" class="form-label">Offender's Name</label>
-                            <input name= "inputName" type="text" class="form-control" id="inputFname" placeholder="John Doe"
-                            aria-label="Offender First Name" required>
-                        </div>
-                    </div>
-                    <div class="row" id="nomargin">
-                        <div class="col-md-12" id="fname">
-                            <label for="nameComplainant" class="form-label">Complainant's Name</label>
-                            <input name= "nameComplainant" type="text" class="form-control" id="nameComplainant" placeholder="John Doe"
-                            aria-label="Offender First Name" required>
-                        </div>
-                    </div>
-                    <div class="row" id="nomargin">
-                        <div class="col-md-12" id="emailComplainant">
-                            <label for="emailComplainant" class="form-label">Complainant's Email</label>
-                            <input name= "emailComplainant" type="text" class="form-control" id="emailComplainant" placeholder="complainant@email.com"
-                            aria-label="Offender First Name" required>
-                        </div>
-                    </div>
-                    <div class="row" id="nomargin">
-                        <div class="col-md-6" id="age">
-                            <label for="inputAge" class="form-label">Age</label>
-                            <input type="text" class="form-control" id="inputAge" name="inputage" placeholder="30"
-                            aria-label="Offender Age" required>
-                        </div>
-                        <div class="col-md-6" id="gender">
-                            <label for="inputGender" class="form-label">Gender</label>
-                            <br>
-                            <select type="text" name="selectedGender" class="form-control" 
-                            aria-label="Offender Gender" value="Select Gender">
-                            <option value="Select Gender" disabled selected>Select gender</option>
-                            <option value="Male" >Male</option>
-                            <option value="Released" >Female</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row" id="nomargin">
-                        <div class="col-md-12" id="offense">
-                            <select type="text" name="inputoffense" class="form-control" 
-                            aria-label="Offender Gender" value="Select Gender">
-                            <option value ="Select Gender" disabled selected>Select Criminal Charge</option>
-                            <option value="Aggravated Assault" >Aggravated Assault</option>
-                            <option value="Arson" >Arson</option>
-                            <option value="Attempt" >Attempt</option>
-                            <option value="Bribery" >Bribery</option>
-                            <option value="Burglary" >Burglary</option>
-                            <option value="Child Abandonment" >Child Abandonment</option>
-                            <option value="Child Pornography" >Child Pornography</option>
-                            <option value="Child Abuse" >Child Abuse</option>
-                            <option value="Computer Crime" >Computer Crime</option>
-                            <option value="Disturbing the Peace" >Disturbing the Peace</option>
-                            <option value="Domestic Violence" >Domestic Violence</option>
-                            <option value="Drug Manufacturing and Cultivation" >Drug Manufacturing and Cultivation</option>
-                            <option value="Drug Possession" >Drug Possession</option>
-                            <option value="Drug Trafficking / Distribution" >Computer Crime</option>
-                            <option value="Embezzlement" >Disturbing the Peace</option>
-                            <option value="Extortion" >Extortion</option>
-                            <option value="Forgery" >Forgery</option>
-                            <option value="Fraud" >Fraud</option>
-                            <option value="Harassment" >Harassment</option>
-                            <option value="Homicide" >Homicide</option>
-                            <option value="Indecent Exposure" >Indecent Exposure</option>
-                            <option value="Insurance Fraud" >Insurance Fraud</option>
-                            <option value="Kidnapping" >Kidnapping</option>
-                            <option value="Manslaughter: Involuntary" >Manslaughter: Involuntary</option>
-                            <option value="Manslaughter: Voluntary" >Manslaughter: Voluntary</option>
-                            <option value="Money Laundering" >Money Laundering</option>
-                            <option value="Murder: First-degree" >Murder: First-degree</option>
-                            <option value="Murder: Second-degree" >Murder: Second-degree</option>
-                            <option value="Perjury" >Perjury</option>
-                            <option value="Probation Violation" >Probation Violation</option>
-                            <option value="Prostitution" >Prostitution</option>
-                            <option value="Public Intoxication" >Public Intoxication</option>
-                            <option value="Pyramid Schemes" >Pyramid Schemes</option>
-                            <option value="Racketeering / RICO" >Racketeering / RICO</option>
-                            <option value="Rape" >Rape</option>
-                            <option value="Robbery" >Robbery</option>
-                            <option value="Securities Fraud" >Securities Fraud</option>
-                            <option value="Sexual Assault" >Sexual Assault</option>
-                            <option value="Shoplifting" >Shoplifting</option>
-                            <option value="Solicitation" >Solicitation</option>
-                            <option value="Stalking" >Stalking</option>
-                            <option value="Statutory Rape" >Statutory Rape</option>
-                            <option value="Tax Evasion / Fraud" >Tax Evasion / Fraud</option>
-                            <option value="Telemarketing Fraud" >Telemarketing Fraud</option>
-                            <option value="Theft" >Theft</option>
-                            <option value="Vandalism" >Vandalism</option>
-                            <option value="White Collar Crimes" >White Collar Crimes</option>
-                            <option value="Wire Fraud" >Wire Fraud</option>
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6" style="margin: auto;">
-                    <div class="row" id="casedetails">
-                        <div class="col-md-12">
-                            <label for="inputCaseDetails" class="form-label">Case Details</label>
-                            <br>
-                        </div>
-                        <div class="col-md-12">
-                            <textarea id="inputCaseDetails"class="form-control" rows="9"  name="inputcasedesc"
-                            placeholder="Insert case details here or complainant's statement here" required></textarea>
-                        </div>
+      </nav>
+    <div class="row" style="margin: auto;">
+        <div class="col-md-6">
+            <h1 style="margin: 2% auto;">File A Complaint</h1>
+        </div>
+    </div>
+    <div >
+        <form class="row" style="text-align: left; margin: auto;" action = "{% url 'htmlFiles:addoffender' %}" method = "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <legend style="color: #EEEEEE">Offender Details</legend>
+            <div class="col-md-6" style="margin: auto;">
+                <div class="row" id="nomargin">
+                    <div class="col-md-12" id="fname">
+                        <label for="inputFname" class="form-label">Offender's Name</label>
+                        <input name= "inputName" type="text" class="form-control" id="inputFname" placeholder="John Doe"
+                        aria-label="Offender First Name" required>
                     </div>
                 </div>
                 <div class="row" id="nomargin">
-                    <div class="col-md-4 form-action-buttons">
-                        <button type="submit" class="btn btn-outline-dark" id="fileComplaint" onclick="passvalues()"><i class="fas fa-file-signature" ></i> File complaint</button>
+                    <div class="col-md-12" id="fname">
+                        <label for="nameComplainant" class="form-label">Complainant's Name</label>
+                        <input name= "nameComplainant" type="text" class="form-control" id="nameComplainant" placeholder="John Doe"
+                        aria-label="Offender First Name" required>
                     </div>
                 </div>
-            </form>
-            
-            
-        </div>
+                <div class="row" id="nomargin">
+                    <div class="col-md-12" id="emailComplainant">
+                        <label for="emailComplainant" class="form-label">Complainant's Email</label>
+                        <input name= "emailComplainant" type="text" class="form-control" id="emailComplainant" placeholder="complainant@email.com"
+                        aria-label="Offender First Name" required>
+                    </div>
+                </div>
+                <div class="row" id="nomargin">
+                    <div class="col-md-6" id="age">
+                        <label for="inputAge" class="form-label">Age</label>
+                        <input type="text" class="form-control" id="inputAge" name="inputage" placeholder="30"
+                        aria-label="Offender Age" required>
+                    </div>
+                    <div class="col-md-6" id="gender">
+                        <label for="inputGender" class="form-label">Gender</label>
+                        <select type="text" name="selectedGender" class="form-control" 
+                        aria-label="Offender Gender" value="Select Gender">
+                        <option value="Select Gender" disabled selected>Select gender</option>
+                        <option value="Male" >Male</option>
+                        <option value="Released" >Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" id="nomargin">
+                    <div class="col-md-12" id="offense">
+                        <select type="text" name="inputoffense" class="form-control" 
+                        aria-label="Offender Offense" value="Select Offense">
+                        <option value ="Select Offense" disabled selected>Select Criminal Charge</option>
+                        <option value="Aggravated Assault" >Aggravated Assault</option>
+                        <option value="Arson" >Arson</option>
+                        <option value="Attempt" >Attempt</option>
+                        <option value="Bribery" >Bribery</option>
+                        <option value="Burglary" >Burglary</option>
+                        <option value="Child Abandonment" >Child Abandonment</option>
+                        <option value="Child Pornography" >Child Pornography</option>
+                        <option value="Child Abuse" >Child Abuse</option>
+                        <option value="Computer Crime" >Computer Crime</option>
+                        <option value="Disturbing the Peace" >Disturbing the Peace</option>
+                        <option value="Domestic Violence" >Domestic Violence</option>
+                        <option value="Drug Manufacturing and Cultivation" >Drug Manufacturing and Cultivation</option>
+                        <option value="Drug Possession" >Drug Possession</option>
+                        <option value="Drug Trafficking / Distribution" >Computer Crime</option>
+                        <option value="Embezzlement" >Disturbing the Peace</option>
+                        <option value="Extortion" >Extortion</option>
+                        <option value="Forgery" >Forgery</option>
+                        <option value="Fraud" >Fraud</option>
+                        <option value="Harassment" >Harassment</option>
+                        <option value="Homicide" >Homicide</option>
+                        <option value="Indecent Exposure" >Indecent Exposure</option>
+                        <option value="Insurance Fraud" >Insurance Fraud</option>
+                        <option value="Kidnapping" >Kidnapping</option>
+                        <option value="Manslaughter: Involuntary" >Manslaughter: Involuntary</option>
+                        <option value="Manslaughter: Voluntary" >Manslaughter: Voluntary</option>
+                        <option value="Money Laundering" >Money Laundering</option>
+                        <option value="Murder: First-degree" >Murder: First-degree</option>
+                        <option value="Murder: Second-degree" >Murder: Second-degree</option>
+                        <option value="Perjury" >Perjury</option>
+                        <option value="Probation Violation" >Probation Violation</option>
+                        <option value="Prostitution" >Prostitution</option>
+                        <option value="Public Intoxication" >Public Intoxication</option>
+                        <option value="Pyramid Schemes" >Pyramid Schemes</option>
+                        <option value="Racketeering / RICO" >Racketeering / RICO</option>
+                        <option value="Rape" >Rape</option>
+                        <option value="Robbery" >Robbery</option>
+                        <option value="Securities Fraud" >Securities Fraud</option>
+                        <option value="Sexual Assault" >Sexual Assault</option>
+                        <option value="Shoplifting" >Shoplifting</option>
+                        <option value="Solicitation" >Solicitation</option>
+                        <option value="Stalking" >Stalking</option>
+                        <option value="Statutory Rape" >Statutory Rape</option>
+                        <option value="Tax Evasion / Fraud" >Tax Evasion / Fraud</option>
+                        <option value="Telemarketing Fraud" >Telemarketing Fraud</option>
+                        <option value="Theft" >Theft</option>
+                        <option value="Vandalism" >Vandalism</option>
+                        <option value="White Collar Crimes" >White Collar Crimes</option>
+                        <option value="Wire Fraud" >Wire Fraud</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="margin: auto;">
+                <div class="row" id="casedetails">
+                    <div class="col-md-12">
+                        <label for="inputCaseDetails" class="form-label">Case Details</label>
+                        <br>
+                    </div>
+                    <div class="col-md-12">
+                        <textarea id="inputCaseDetails"class="form-control" rows="9"  name="inputcasedesc"
+                        placeholder="Insert case details here or complainant's statement here" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4 form-action-buttons" style="text-align: center;">
+                    <button type="submit" class="btn btn-outline-dark" id="fileComplaint" onclick="passvalues()"><i class="fas fa-file-signature" ></i> File complaint</button>
+                </div>
+            </div>
+        </form>
+        
+        
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

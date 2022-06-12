@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Admin Registration</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,80 +50,82 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6" style="width: auto; background-color: #151515; border-radius: 5px; color: white">
-            <h1 style="pointer-events: none;">Register</h1>
-            <p style="pointer-events: none;">Enter info here</p>
-            <form method = "POST" action="">
-              {% csrf_token %}
-              {% for field in form %}
-                  {{field}}
-              {% endfor %}
-              <div class="row" id="barangayofficer">
+        <div class="row" style="margin: 2% auto;width: fit-content; background-color: #151515; border-radius: 5px; color: white">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 style="pointer-events: none;">Register</h1>
+              <p style="pointer-events: none;">Enter info here</p>
+              <form method = "POST" action="">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{field}}
+                {% endfor %}
+                <div class="row" id="barangayofficer">
+                  <div class="col-md-6">
+                    {{registerForm.first_name.label}}
+                  </div>
+                  <div class="col-md-6" >
+                    {{registerForm.first_name}}
+                  </div>
+                </div>
+                <div class="row" id="barangayofficer">
+                  <div class="col-md-6" >
+                    {{registerForm.last_name.label}}
+                  </div>
+                  <div class="col-md-6" >
+                    {{registerForm.last_name}}
+                  </div>
+                </div>
+                <div class="row" id="inputUsername">
+                  <div class="col-md-6">
+                      {{registerForm.username.label}}
+                  </div>
+                  <div class="col-md-6" >
+                    {{registerForm.username}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    {{registerForm.password1.label}}
+                  </div>
+                  <div class="col-md-6">
+                    {{registerForm.password1}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    {{registerForm.password2.label}}
+                  </div>
+                  <div class="col-md-6">
+                    {{registerForm.password2}}
+                  </div>
+                </div>
                 <div class="col-md-6">
-                  {{registerForm.first_name.label}}
+                  <input
+                type="password"
+                class="form-control"
+                name="authorizationcode"
+                id="authcode"
+                placeholder="Authorization Code"
+                required
+              />
                 </div>
-                <div class="col-md-6" >
-                  {{registerForm.first_name}}
-                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <input type="submit" class="btn btn-outline-dark" style="margin: auto;" name="Create User"></input>
+                  </div>
               </div>
-              <div class="row" id="barangayofficer">
-                <div class="col-md-6" >
-                  {{registerForm.last_name.label}}
-                </div>
-                <div class="col-md-6" >
-                  {{registerForm.last_name}}
-                </div>
-              </div>
-              <div class="row" id="inputUsername">
-                <div class="col-md-6">
-                    {{registerForm.username.label}}
-                </div>
-                <div class="col-md-6" >
-                  {{registerForm.username}}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  {{registerForm.password1.label}}
-                </div>
-                <div class="col-md-6">
-                  {{registerForm.password1}}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  {{registerForm.password2.label}}
-                </div>
-                <div class="col-md-6">
-                  {{registerForm.password2}}
-                </div>
-              </div>
-              <div class="col-md-6">
-                <input
-              type="password"
-              class="form-control"
-              name="authorizationcode"
-              id="authcode"
-              placeholder="Authorization Code"
-              required
-            />
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                    <input type="submit" class="btn btn-outline-dark" style="margin: auto;" name="Create User"></input>
-                </div>
+              <h3>{%for msg in messages %}
+                {{msg}}
+            {% endfor %}</h3>
+              </form>
+              <hr>
+          <h3>Password Guidelines:</h3>
+          <li>Your password can't be too similar to your other personal information.</li>
+          <li>Your password must contain at least 8 characters.</li>
+          <li>Your password can't be a commonly used password.</li>
+          <li>Your password can't be entirely numeric.</li>
             </div>
-            <h3>{%for msg in messages %}
-              {{msg}}
-          {% endfor %}</h3>
-            </form>
-            <hr>
-        <h3>Password Guidelines:</h3>
-        <li>Your password can't be too similar to your other personal information.</li>
-        <li>Your password must contain at least 8 characters.</li>
-        <li>Your password can't be a commonly used password.</li>
-        <li>Your password can't be entirely numeric.</li>
           </div>
         </div>
         

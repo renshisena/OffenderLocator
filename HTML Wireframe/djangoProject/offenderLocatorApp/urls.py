@@ -2,7 +2,7 @@ from multiprocessing import managers
 from re import template
 from django.conf import settings
 from django.urls import path
-from mysqlx import Auth
+# from mysqlx import Auth
 from . import views
 from django.contrib.auth import views as auth_view
 from django.conf.urls.static import static
