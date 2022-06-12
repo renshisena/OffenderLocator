@@ -17,6 +17,8 @@ class offenders1(models.Model):
         ("Released","Released"),
         ("Transferred","Transferred"),
     )
+    complainant = models.CharField(max_length=45, verbose_name='complainant',null=TRUE)
+    complainantEmail = models.EmailField(null=FALSE)
     offender = models.CharField(max_length=45, verbose_name='offender')
     gender = models.CharField(max_length=6, verbose_name='gender')
     age = models.IntegerField()
@@ -25,3 +27,5 @@ class offenders1(models.Model):
     caseDescription = models.TextField(max_length = 400,null = TRUE,verbose_name='caseDescription')
     offenderPic = models.ImageField(null=TRUE, blank = TRUE,upload_to="images/")
     datenow = models.CharField(max_length = 45,verbose_name='datenow',null=FALSE)
+    dateSchedule = models.CharField(max_length = 45,verbose_name='dateSchedule',null=TRUE)
+    timeSchedule = models.CharField(max_length = 45,verbose_name='timeSchedule',null=TRUE)

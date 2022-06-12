@@ -7,10 +7,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from io import BytesIO
+from django.core.mail import send_mail
 
 # Create your views here.
 
 from django.http import HttpResponse, request
+from urllib3 import Retry
 from .models import offenders1
 from .forms import UserRegistration
 
@@ -56,6 +58,7 @@ def logoutUser(request):
     logout(request)
     return redirect('/login')
 
+@login_required(login_url='/login')
 def view_details(request):
     return render(request,'htmlFiles/viewdatails.html')
 
@@ -64,8 +67,8 @@ def lookup(request):
     context = {'data1':data1}
     
     if request.method == 'POST':
-        id = request.POST.get('submitBtn')
-        tableoff = offenders1.objects.filter(id=id)
+        viewid = request.POST.get('submitBtn')
+        tableoff = offenders1.objects.filter(id=viewid)
         context = {'tableoff':tableoff}
         return render(request, 'htmlFiles/viewdetails.html', context)
     return render(request, 'htmlFiles/lookup.html', context)
@@ -84,9 +87,11 @@ def addoffender(request):
     age = request.POST.get('inputage')
     gender = request.POST.get('selectedGender')
     offense = request.POST.get('inputoffense')
+    complainant = request.POST.get('nameComplainant')
+    complainantEmail = request.POST.get('emailComplainant')
     today=date.today()
     casedescription = request.POST.get('inputcasedesc')
-    offendertable = offenders1.objects.create(offender = offender, age=age, gender = gender, offense = offense, caseDescription = casedescription, datenow = today)
+    offendertable = offenders1.objects.create(offender = offender,complainant = complainant,complainantEmail = complainantEmail, age=age, gender = gender, offense = offense, caseDescription = casedescription, datenow = today)
     offendertable.save()
     return redirect('/lookup')
  
@@ -110,3 +115,26 @@ def accountmanager(request):
     data = User.objects.all()
     context = {'data':data}
     return render(request,'htmlFiles/accountmanager.html',context)
+
+
+@login_required(login_url='/login')
+def schedule(request):
+    data1 = offenders1.objects.filter(caseStatus ='Ongoing').order_by()
+    context = {'data1':data1}
+    if request.method == 'POST':
+        viewid = request.POST.get('id')
+        time = request.POST.get('selectedTime')
+        datesched = request.POST.get('datepicker')
+        myEmail = 'offenderlocatoryt@gmail.com'
+        complainant = request.POST.get('complainantName')
+        complainantEmail = request.POST.get('complainantEmail1')
+        offenders1.objects.filter(id=viewid).update(timeSchedule = time,dateSchedule = datesched)
+        send_mail(
+            'This is Barangay Anabu 2-F',#subject
+            complainant, #message
+            myEmail,#from email
+            [complainantEmail],#to email
+        )
+        return render(request, 'htmlFiles/schedule.html',context)
+    return render(request, 'htmlFiles/schedule.html', context)
+

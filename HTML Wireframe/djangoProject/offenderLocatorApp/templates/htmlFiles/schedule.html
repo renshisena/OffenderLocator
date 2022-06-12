@@ -43,7 +43,6 @@
         <ul class="navbar-nav ms-auto text-center">
           <li><a class="nav-link" href="/admin_lookup">Offenders</a></li>
           <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
-          <li><a class="nav-link" href="/schedule">Schedule</a></li>
           <li><a class="nav-link" href="/account_manager">Account Manager</a></li>
     
           <div class="btn-group">
@@ -71,7 +70,7 @@
       <hr>
       <h2>Required Information</h2>
 
-      <form onsubmit="event.preventDefault();">
+      <form onsubmit="event.preventDefault();" method="POST">
         <div class="row">
           <div class="col-md-4 col-sm-12" id="lookupfname">
             <label for="searchALname" style="color: #eeee;">Offender's Full Name:</label>
@@ -99,41 +98,80 @@
             <th class="text-center">Gender</th>
             <th class="text-center">Offense</th>
             <th class="text-center">Case Status</th>
+            <th class="text-center">Complainant</th>
             <th class="text-center">Date of Complaint</th>
             <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          {% for items in data1 %}
+            {% for items in data1 %}
             <tr>
-              <td>{{items.offender}}</th>
+              <td>{{items.offender}}</td>
               <td>{{items.id}}</td>
               <td>{{items.age}}</td>
               <td>{{items.gender}}</td>
               <td>{{items.offense}}</td>
-              <form action="" method="post">
-                {% csrf_token %}
-              <td><select name="caseStatus" id="">
-                <option value="{{items.caseStatus}}" disabled selected>{{items.caseStatus}}</option>
-                <option value="Ongoing">Ongoing</option>
-                <option value="Released">Released</option>
-                <option value="Transferred">Transferred</option>
-              </select>
-            </td>
+              <td>{{items.caseStatus}}</td>
+              <td>{{items.complainant}}</td>
               <td>{{items.datenow}}</td>
               <td>
-                <input type="hidden" name="getID" value="{{items.id}}">
-                <button type = "submit" class="btn btn-success">Save</button>
-              </form>
+                <button type="button" data-bs-toggle="modal" class="btn btn-primary" data-bs-target="#modalOut{{ items.id }}">Set Schedule</button>
+                <button type="button" class="btn btn-success">Send Email</button>
               </td>
             </tr>
+            
+            <div class="modal fade" id="modalOut{{ items.id }}" tabindex="-1" role="dialog" aria-labelledby="modalOut" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Set Schedule: </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="text-center">
+                      <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ items.id }}">
+                        <input type="hidden" name="complainantName" value="{{ items.complainant }}">
+                        <input type="hidden" name="complainantEmail1" value="{{ items.complainantEmail }}">
+                        <label for="">Name of Complainant:</label>
+                        <h3>{{ items.complainant }}</h3>
+                        <label for="">Complainant's email:</label>
+                        <h3>{{ items.complainantEmail }}</h3>
+                        <br>
+                        <label for="datepicker" class="form-label">Date</label>
+                        <input name= "datepicker" type="date" class="form-control" id="datepicker" style="background-color: white; color:black;" placeholder="Set Date"
+                        aria-label="Date" required>
+                        <label for="time" class="form-label">Time</label>
+                                <br>
+                                <select type="text" name="selectedTime" class="form-control" 
+                                aria-label="Set Time" value="Set Time">
+                                <option value="Set Time" disabled selected>Set Time</option>
+                                <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
+                                <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                                <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+                                <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM</option>
+                                </select>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-success" >Set Schedule</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                       
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             {% endfor %}
+          </form>
         </tbody>
       </table>
     </div>
   </div>
 
 </div>
+    
       </div>
     </div>
 

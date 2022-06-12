@@ -21,4 +21,6 @@ urlpatterns = [
     path('account_manager/',views.accountmanager, name='accountmanager'),
     path('about/',views.about, name='about'),
     path('logout/',views.logoutUser, name='logout'),
+    path('schedule/',views.schedule, name='schedule'),
+    # path('opensched/',views.opensched, name='opensched'),
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
