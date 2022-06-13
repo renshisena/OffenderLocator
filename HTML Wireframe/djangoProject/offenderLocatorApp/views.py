@@ -93,7 +93,7 @@ def addoffender(request):
     casedescription = request.POST.get('inputcasedesc')
     offendertable = offenders1.objects.create(offender = offender,complainant = complainant,complainantEmail = complainantEmail, age=age, gender = gender, offense = offense, caseDescription = casedescription, datenow = today)
     offendertable.save()
-    return redirect('/lookup')
+    return redirect('/admin_lookup')
  
 def release(request):
      return render(request,'htmlFiles/release.html' )
