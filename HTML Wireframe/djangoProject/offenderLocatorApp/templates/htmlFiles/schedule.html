@@ -116,7 +116,7 @@
               <td>{{items.datenow}}</td>
               <td>
                 <button type="button" data-bs-toggle="modal" class="btn btn-primary" data-bs-target="#modalOut{{ items.id }}">Set Schedule</button>
-                <button type="button" class="btn btn-success">Send Email</button>
+               
               </td>
             </tr>
             
@@ -132,6 +132,7 @@
                       <form action="" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ items.id }}">
+                        <input type="hidden" name="offenderSched" value="{{ items.offender}}">
                         <input type="hidden" name="complainantName" value="{{ items.complainant }}">
                         <input type="hidden" name="complainantEmail1" value="{{ items.complainantEmail }}">
                         

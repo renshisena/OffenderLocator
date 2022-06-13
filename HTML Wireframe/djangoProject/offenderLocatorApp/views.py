@@ -119,9 +119,10 @@ def accountmanager(request):
 
 @login_required(login_url='/login')
 def schedule(request):
-    data1 = offenders1.objects.filter(caseStatus ='Ongoing').order_by()
+    data1 = offenders1.objects.filter(caseStatus ='Ongoing',timeSchedule__isnull=True,dateSchedule__isnull=True ).order_by()
     context = {'data1':data1}
     if request.method == 'POST':
+        offender = request.POST.get('offenderSched')
         viewid = request.POST.get('id')
         time = request.POST.get('selectedTime')
         datesched = request.POST.get('datepicker')
@@ -130,8 +131,8 @@ def schedule(request):
         complainantEmail = request.POST.get('complainantEmail1')
         offenders1.objects.filter(id=viewid).update(timeSchedule = time,dateSchedule = datesched)
         send_mail(
-            'This is Barangay Anabu 2-F',#subject
-            complainant, #message
+            'Scheduled meeting with barangay officials and the Accused.',#subject
+            'Greetings '+ complainant+' you have been scheduled to meet with the accused: '+offender +' on '+datesched+' at '+time+'. We hope to come to a reconciliation between the parties involved.', #message
             myEmail,#from email
             [complainantEmail],#to email
         )
