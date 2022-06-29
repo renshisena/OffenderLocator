@@ -20,7 +20,8 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="/">Offender Locator</a>
         <ul class="navbar-nav ms-auto text-center">
-            <li><a class="nav-link" href="" onclick="printRelease()"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></a></li>
+            {% comment %} <li><button class="nav-link" href="/generatePDF" onclick="printRelease()"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></button></li> {% endcomment %}
+            <li><button type = "submit" class="nav-link" href="/generatePDF"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></button></li>
     </nav>
     
     <div class="row" id="nomargin">
@@ -36,7 +37,7 @@
                     <p><strong>Name: </strong> </p>
                 </div>
                 <div class="col-md-6">
-                    <p>{{data.offender}}</p>
+                    <p name = 'offenderP'>{{data.offender}}</p>
                 </div> 
             </div>
             <div class="row" id="nomargin">
@@ -44,7 +45,7 @@
                     <p><strong>Age:</strong>
                 </div>
                 <div class="col-md-6">
-                    <p>{{data.age}}</p>
+                    <p name = 'ageP'>{{data.age}}</p>
                 </div>
             </div>
             <div class="row" id="nomargin">
@@ -52,7 +53,7 @@
                     <p><strong>Gender:</strong>
                 </div>
                 <div class="col-md-6">
-                    <p>{{data.gender}}</p> 
+                    <p name = 'genderP'>{{data.gender}}</p> 
                 </div>
             </div>
             <div class="row" id="nomargin">
@@ -60,7 +61,15 @@
                     <p><strong>Case ID:</strong>
                 </div>
                 <div class="col-md-6">
-                    <p>{{data.id}}</p>
+                    <p name = 'caseidP'>{{data.id}}</p>
+                </div>
+            </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <p><strong>Offense:</strong>
+                </div>
+                <div class="col-md-6">
+                    <p name = 'offenseP'>{{data.offense}}</p>
                 </div>
             </div>
             <div class="row" id="nomargin">
@@ -68,29 +77,21 @@
                     <p><strong>Case:</strong>
                 </div>
                 <div class="col-md-6">
-                    <p>{{data.offense}}</p>
-                </div>
-            </div>
-            <div class="row" id="nomargin">
-                <div class="col-md-4">
-                    <p><strong>Case:</strong>
-                </div>
-                <div class="col-md-6">
-                    <p>{{data.caseStatus}}</p>
+                    <p name = 'casestatusP'>{{data.caseStatus}}</p>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="row" id="nomargin">
                 <div class="col-md-4">
-                    <p><strong>Date of Complaint: {{data.datenow}}</strong>
+                    <p name = 'dateofcomplaintP'><strong>Date of Complaint: {{data.datenow}}</strong>
                 </div>
             </div>
         </div>
     </div>
     
     <h3>Case Description:</h3>
-        <p>{{data.caseDescription}}</p>    
+        <p name = 'casedescriptionP'>{{data.caseDescription}}</p>    
     {% endfor %}
 
     <div class="row" id="nomargin">
