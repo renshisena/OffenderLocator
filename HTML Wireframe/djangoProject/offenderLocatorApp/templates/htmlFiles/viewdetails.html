@@ -20,8 +20,8 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="/">Offender Locator</a>
         <ul class="navbar-nav ms-auto text-center">
-            {% comment %} <li><button class="nav-link" href="/generatePDF" onclick="printRelease()"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></button></li> {% endcomment %}
-            <li><button type = "submit" class="nav-link" href="/generatePDF"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></button></li>
+            <li><button class="nav-link" onclick="printRelease()"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></button></li>
+            <li><button type = "submit" class="nav-link" onclick="printRelease()"><img src="{% static 'Media/printer.png' %}" alt="Print File" height="30px" width="30px"></button></li> {% endcomment %}
     </nav>
     
     <div class="row" id="nomargin">
@@ -35,6 +35,14 @@
             <div class="row" id="nomargin">
                 <div class="col-md-4">
                     <p><strong>Name: </strong> </p>
+                </div>
+                <div class="col-md-6">
+                    <p name = 'offenderP'>{{data.offender}}</p>
+                </div> 
+            </div>
+            <div class="row" id="nomargin">
+                <div class="col-md-4">
+                    <img src="{{data.offenderPic.url}}">
                 </div>
                 <div class="col-md-6">
                     <p name = 'offenderP'>{{data.offender}}</p>

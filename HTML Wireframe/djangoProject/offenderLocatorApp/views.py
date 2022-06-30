@@ -3,6 +3,7 @@ from email.mime import image
 from mmap import PAGESIZE
 from multiprocessing import context
 from xml.dom.minidom import Document
+from click import style
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from datetime import date
@@ -12,6 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import io
 from django.core.mail import send_mail
+import os
 
 # Create your views here.
 
@@ -26,7 +28,7 @@ from reportlab.lib.units import inch
 from reportlab.lib.enums import TA_JUSTIFY, TA_CENTER
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet ,ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, paragraph, Spacer, Image      
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image      
 
 
 def user_registration(request):
@@ -76,69 +78,67 @@ def lookup(request):
     data1 = offenders1.objects.all()
     context = {'data1':data1}
     if request.method == 'POST':
-        buf = io.BytesIO()
-        c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
-        #text object
-        textob= c.beginText()
-        textob.setTextOrigin(inch, inch)
-        textob.setFont("Helvetica",14)
-        viewid = request.POST.get('submitBtn')
-        tableoff = offenders1.objects.filter(id=viewid)
-        lines = []
-        # lines.append(Image('anabu.jpg',2.2*inch,2.2*inch))
-        for details in tableoff:
-            lines.append('Case ID: '+str(details.id))
-            lines.append('Accused: '+details.offender)
-            lines.append('Gender: '+details.gender)
-            lines.append('Case Status: '+details.caseStatus)
-            lines.append('Offense: '+details.offense)
-            lines.append('Date of Complaint: '+details.datenow)
-            lines.append('Complainant: '+details.complainant)
-            lines.append('')
-            lines.append('____________________________________________________________')
-            lines.append('')
-            lines.append('')
-            lines.append('                                               Case Description:')
-            lines.append('')
-            lines.append('This form contains the dispute between the two parties involved. The accused ')
-            lines.append(details.offender+' committed '+details.offense+' according to the complainant')
-            lines.append(details.complainant+'. According to the case description, the accused ')
-            lines.append('"'+details.caseDescription+'"')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('')
-            lines.append('___________________         ___________________        ___________________')
-            lines.append('             Accused                              Complainant                      Barangay Official')
-            
-            
-        
-        for line in lines:
-            textob.textLine(line)
-        c.drawText(textob)
-        c.showPage()
-        c.save()
-        buf.seek(0)
-        return FileResponse(buf, as_attachment=True, filename='Case Details '+details.offender+'.pdf')
+            buf = io.BytesIO()
+            c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+            #text object
+            textob= c.beginText()
+            textob.setTextOrigin(inch, inch)
+            textob.setFont("Helvetica",14)
+            viewid = request.POST.get('submitBtn')
+            tableoff = offenders1.objects.filter(id=viewid)
+            lines = []
+            # lines.append(Image('anabu.jpg',2.2*inch,2.2*inch))
+            for details in tableoff:
+                lines.append('Case ID: '+str(details.id))
+                lines.append('Offender: '+details.offender)
+                lines.append('Gender: '+details.gender)
+                lines.append('Case Status: '+details.caseStatus)
+                lines.append('Offense: '+details.offense)
+                lines.append('Date of Complaint: '+details.datenow)
+                lines.append('Complainant: '+details.complainant)
+                lines.append('')
+                lines.append('____________________________________________________________')
+                lines.append('')
+                lines.append('')
+                lines.append('                                               Case Description:')
+                lines.append('')
+                lines.append('This form contains the dispute between the two parties involved. The accused ')
+                lines.append(details.offender+' committed '+details.offense+' according to the complainant')
+                lines.append(details.complainant+'. According to the case description, the accused ')
+                lines.append('"'+details.caseDescription+'"')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('')
+                lines.append('___________________         ___________________        ___________________')
+                lines.append('             Accused                              Complainant                      Barangay Official')
+
+            for line in lines:
+                textob.textLine(line)
+            c.drawText(textob)
+            c.showPage()
+            c.save()
+            buf.seek(0)
+            return FileResponse(buf, as_attachment=True, filename='Case Details '+details.offender+'.pdf')
     return render(request, 'htmlFiles/lookup.html', context)
     
 @login_required(login_url='/login')
