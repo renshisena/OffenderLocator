@@ -24,7 +24,20 @@
                     <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
                     <li><a class="nav-link" href="/about"onclick="">About</a></li>
                     <li class="nav-item"><a href="/lookup" class="nav-link">Lookup</a></li>
+                    {%if user.is_authenticated %}
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                        <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
+                        <li><a class="nav-link" href="/admin_lookup">Admin Lookup</a></li>
+                      </ul>
+                    </div>
+                    {%else%}
                     <li class="nav-item"><a href="/login"class="nav-link">Login</a></li>
+                    {%endif%}
+                    
                 </ul>
             </div>
             <!-- slider -->

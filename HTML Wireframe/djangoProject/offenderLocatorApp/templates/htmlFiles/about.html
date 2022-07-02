@@ -47,7 +47,18 @@
             <li><a class="nav-link" href="/">Home</a></li>
             <li><a class="nav-link" href="/about">About</a></li>
             <li><a class="nav-link" href="/lookup">Lookup</a></li>
-            <li><a class="nav-link" href="/login">Admin</a></li>
+            {%if user.is_authenticated %}
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                        <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
+                      </ul>
+                    </div>
+                    {%else%}
+                    <li class="nav-item"><a href="/login"class="nav-link">Login</a></li>
+            {%endif%}
           </ul>
         </div>
       </nav>

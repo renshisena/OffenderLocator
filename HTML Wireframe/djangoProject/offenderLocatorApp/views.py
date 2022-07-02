@@ -25,10 +25,7 @@ from .forms import UserRegistration
 #try print method
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
-from reportlab.lib.enums import TA_JUSTIFY, TA_CENTER
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.styles import getSampleStyleSheet ,ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image      
 
 
 def user_registration(request):
@@ -60,7 +57,7 @@ def loginpage(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/admin_lookup')
+            return redirect('/lookup')
         else:
             messages.info(request, 'Username or password is incorrect.')
     context = {}
@@ -78,16 +75,14 @@ def lookup(request):
     data1 = offenders1.objects.all()
     context = {'data1':data1}
     if request.method == 'POST':
-            buf = io.BytesIO()
-            c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
-            #text object
-            textob= c.beginText()
+            iobytes = io.BytesIO()
+            c = canvas.Canvas(iobytes, pagesize=letter, bottomup=0)
+            textob = c.beginText()
             textob.setTextOrigin(inch, inch)
             textob.setFont("Helvetica",14)
             viewid = request.POST.get('submitBtn')
             tableoff = offenders1.objects.filter(id=viewid)
             lines = []
-            # lines.append(Image('anabu.jpg',2.2*inch,2.2*inch))
             for details in tableoff:
                 lines.append('Case ID: '+str(details.id))
                 lines.append('Offender: '+details.offender)
@@ -105,7 +100,7 @@ def lookup(request):
                 lines.append('This form contains the dispute between the two parties involved. The accused ')
                 lines.append(details.offender+' committed '+details.offense+' according to the complainant')
                 lines.append(details.complainant+'. According to the case description, the accused ')
-                lines.append('"'+details.caseDescription+'"')
+                lines.append('"'+details.caseDescription+'".')
                 lines.append('')
                 lines.append('')
                 lines.append('')
@@ -131,16 +126,15 @@ def lookup(request):
                 lines.append('')
                 lines.append('___________________         ___________________        ___________________')
                 lines.append('             Accused                              Complainant                      Barangay Official')
-
             for line in lines:
                 textob.textLine(line)
             c.drawText(textob)
             c.showPage()
             c.save()
-            buf.seek(0)
-            return FileResponse(buf, as_attachment=True, filename='Case Details '+details.offender+'.pdf')
+            iobytes.seek(0)
+            return FileResponse(iobytes, as_attachment=True, filename='Case Details '+details.offender+'.pdf')
     return render(request, 'htmlFiles/lookup.html', context)
-    
+
 @login_required(login_url='/login')
 def adminlookup(request):
     janA1 = request.POST.get('caseStatus')
@@ -158,9 +152,8 @@ def addoffender(request):
     complainant = request.POST.get('nameComplainant')
     complainantEmail = request.POST.get('emailComplainant')
     today=date.today()
-    imageUpload = request.FILES['imageUpload']
     casedescription = request.POST.get('inputcasedesc')
-    offendertable = offenders1.objects.create(offender = offender,complainant = complainant,complainantEmail = complainantEmail, age=age, gender = gender, offense = offense, caseDescription = casedescription, datenow = today, offenderPic =imageUpload)
+    offendertable = offenders1.objects.create(offender = offender,complainant = complainant,complainantEmail = complainantEmail, age=age, gender = gender, offense = offense, caseDescription = casedescription, datenow = today)
     offendertable.save()
     return redirect('/admin_lookup')
  
@@ -184,7 +177,6 @@ def accountmanager(request):
     data = User.objects.all()
     context = {'data':data}
     return render(request,'htmlFiles/accountmanager.html',context)
-
 
 @login_required(login_url='/login')
 def schedule(request):

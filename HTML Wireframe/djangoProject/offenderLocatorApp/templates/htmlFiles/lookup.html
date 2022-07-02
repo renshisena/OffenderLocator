@@ -47,10 +47,27 @@
     </button>
     <div class="collapse navbar-collapse" id="hamburger">
       <ul class="navbar-nav ms-auto text-center">
-        <li><a class="nav-link" href="/">Home</a></li>
-        <li><a class="nav-link" href="/about">About</a></li>
+        
+        {%if user.is_authenticated %}
         <li><a class="nav-link" href="/lookup">Lookup</a></li>
-        <li><a class="nav-link" href="/admin_lookup">Admin</a></li>
+        <li><a class="nav-link" href="/admin_lookup">Offenders</a></li>
+          <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
+          <li><a class="nav-link" href="/schedule">Schedule</a></li>
+          <li><a class="nav-link" href="/account_manager">Account Manager</a></li>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+              <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
+            </ul>
+          </div>
+          {%else%}
+          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link" href="/about">About</a></li>
+          <li><a class="nav-link" href="/lookup">Lookup</a></li>
+          <li class="nav-item"><a href="/login"class="nav-link">Login</a></li>
+          {%endif%}
       </ul>
     </div>
   </nav>
@@ -92,8 +109,8 @@
       <table id="lookupTable" class="table table-dark table-striped">
         <thead>
           <tr>
-            <th scope="col">Offender's Name</th>
             <th scope="col">Case ID</th>
+            <th scope="col">Offender's Name</th>
             <th scope="col">Age</th>
             <th scope="col">Gender</th>
             <th scope="col">Offense</th>
@@ -109,8 +126,8 @@
             {% csrf_token %}
             {% for items in data1 %}
             <tr>
-              <td>{{items.offender}}</td>
               <td>{{items.id}}</td>
+              <td>{{items.offender}}</td>
               <td>{{items.age}}</td>
               <td>{{items.gender}}</td>
               <td>{{items.offense}}</td>
@@ -118,7 +135,7 @@
               <td>{{items.complainant}}</td>
               <td>{{items.datenow}}</td>
               <td>
-                <button name="submitBtn" href ="{% static 'view_details()' %}"value="{{items.id}}" type="submit" class="btn btn-primary">View Details </button>
+                <button name="submitBtn" href ="{% static 'view_details()' %}"value="{{items.id}}" type="submit" class="btn btn-primary">Print Details </button>
               </td>
             </tr>
             {% endfor %}
