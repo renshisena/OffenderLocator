@@ -10,7 +10,7 @@ from datetime import date
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 import io
 from django.core.mail import send_mail
 import os
@@ -27,18 +27,17 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 
-
+@login_required(login_url='/login')
 def user_registration(request):
     registerForm = UserRegistration()
-    authcodes = request.POST.get('authorizationcode')
-    authcode = 'admin123'
-    if authcodes == authcode:
-        if request.method == "POST":
-            registerForm = UserRegistration(request.POST)
-            print('WOW')
-            if registerForm.is_valid():
-                registerForm.save()
-                return redirect('/login')
+    authcode =request.POST.get('authorizationcode')
+    user = authenticate(password = authcode)
+    if request.method == "POST":
+        registerForm = UserRegistration(request.POST)
+        
+        if registerForm.is_valid():
+            registerForm.save()
+            return redirect('/admin_lookup')
 
     context = {'registerForm':registerForm}
     return render(request,'htmlFiles/registration.html',context)
@@ -56,8 +55,12 @@ def loginpage(request):
         password =request.POST.get('inputLoginConfirm')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request, user)
-            return redirect('/lookup')
+            if user.is_superuser == True:
+                login(request, user)
+                return redirect('/account_manager')
+            else:
+                login(request, user)
+                return redirect('/lookup')
         else:
             messages.info(request, 'Username or password is incorrect.')
     context = {}
@@ -156,13 +159,7 @@ def addoffender(request):
     offendertable = offenders1.objects.create(offender = offender,complainant = complainant,complainantEmail = complainantEmail, age=age, gender = gender, offense = offense, caseDescription = casedescription, datenow = today)
     offendertable.save()
     return redirect('/admin_lookup')
- 
-def release(request):
-     return render(request,'htmlFiles/release.html' )
-def transfer(request):
-     return render(request,'htmlFiles/transfer.html' )
-def ongoing(request):
-    return render(request,'htmlFiles/ongoing.html' )
+    
 def registration(request):
     return render(request, 'htmlFiles/registration.html')
 def records(request):
@@ -172,11 +169,12 @@ def about(request):
 
 @login_required(login_url='/login')
 def accountmanager(request):
-    barangayID = request.POST.get('getbarangayID')
-    User.objects.filter(id=barangayID).delete()
-    data = User.objects.all()
-    context = {'data':data}
-    return render(request,'htmlFiles/accountmanager.html',context)
+    if User.is_authenticated:
+        barangayID = request.POST.get('getbarangayID')
+        User.objects.filter(id=barangayID).delete()
+        data = User.objects.all()
+        context = {'data':data}
+        return render(request,'htmlFiles/accountmanager.html',context)
 
 @login_required(login_url='/login')
 def schedule(request):

@@ -53,6 +53,9 @@
                           <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
                       </button>
                       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                        {%if user.is_superuser%}
+                        <li><a class="nav-link" href="/registration">Add Officer</a></li>
+                        {% endif %}
                         <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
                       </ul>
                     </div>

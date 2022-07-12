@@ -15,26 +15,26 @@
   
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   
-  <title>Admin - Account Manager</title>
+  <title>Admin - Lookup</title>
   <style>
 
   body, html{
-  background-color:#00617c;
+  background-color:#164a41;
   }
   .adminDisclaimer{
-  background-color: #00617c;
+  background-color: #164a41;
   }
   .container-lg{
-  background-color: #00617c;
+  background-color: #164a41;
   }
   .HLookup{
-  background-color: #00617c;
+  background-color: #164a41;
   }
   </style>
 </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
-      <a class="navbar-brand">Offender Locator</a>
+      <a class="navbar-brand" href="/">Offender Locator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger" 
           aria-controls="hamburger" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -45,12 +45,18 @@
           <li><a class="nav-link" href="/admin_lookup">Offenders</a></li>
           <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
           <li><a class="nav-link" href="/schedule">Schedule</a></li>
-          <li><a class="nav-link" href="/account_manager">Account Manager</a></li>
+          {%if user.is_superuser%}
+          <li><a class="nav-link" href="/account_manager">Officers</a></li>
+          {% endif %}
+    
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
             </button>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+              {%if user.is_superuser%}
+              <li><a class="nav-link" href="/registration">Add Officer</a></li>
+              {% endif %}
               <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
             </ul>
           </div>
@@ -59,21 +65,36 @@
     </nav>
     <hr>
     <div class="container-lg">
+      <h3>Directions:</h3>
+      <li>
+        Search for an offender's location and release date if they are
+        incarcerated and under the custody of the Barangay Anabu II-F City Hall,
+        Imus city of Cavite. Offenders who are not under Anabu II-F custody will
+        not appear in the search results.
+      </li>
+      <li>Type the Full name of the Offender.</li>
+      <li>Click the search button to see results.</li>
+      <hr>
+      <h2>Required Information</h2>
 
       <form onsubmit="event.preventDefault();">
         <div class="row">
           <div class="col-md-4 col-sm-12" id="lookupfname">
-            <label for="searchALname" style="color: #eeee;">Officer's Name:</label>
-            <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="Juan Dela Cruz" required>
+            <label for="searchALname" style="color: #eeee;">Offender's Full Name:</label>
+            <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="John Doe" required>
           </div>
+        <div>
+          <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearch()">
+            <i class="fas fa-search"></i> Search
+          </button>
         </div>
-        <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearchAL()"><i class="fas fa-search"></i> Search</button>
-      </div>
       </form>
+    </div>
+    </div>
       
-    <hr style="margin-top: 5%;">
+    <hr>
     <div class="container-lg">
-      <h2>Barangay Officers</h2>
+      <h2>SEARCH RESULTS:</h2>
       <div class="table-responsive-admin">
         <!-- Editable table -->
 
@@ -82,25 +103,40 @@
       <table class="table table-hover" id="adminTable"> 
         <thead>
           <tr>
-            <th class="text-center">Username</th>
-            <th class="text-center">First Name</th>
-            <th class="text-center">Last Name</th>
+            <th class="text-center">Offender's Name</th>
+            <th class="text-center">Case ID</th>
+            <th class="text-center">Age</th>
+            <th class="text-center">Gender</th>
+            <th class="text-center">Offense</th>
+            <th class="text-center">Case Status</th>
+            <th class="text-center">Date of Complaint</th>
             <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          {% for items in data %}
+          {% for items in data1 %}
             <tr>
-              <td>{{items.username}}</th>
-              <td>{{items.first_name}}</td>
-              <td>{{items.last_name}}</td>
+              <td>{{items.offender}}</th>
+              <td>{{items.id}}</td>
+              <td>{{items.age}}</td>
+              <td>{{items.gender}}</td>
+              <td>{{items.offense}}</td>
               <form action="" method="post">
-              {% csrf_token %}
+                {% csrf_token %}
+              <td><select name="caseStatus" id="" style="background-color: #151515;
+                color: #EEEEEE;">
+                <option value="{{items.caseStatus}}" disabled selected>{{items.caseStatus}}</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Released">Released</option>
+                <option value="Transferred">Transferred</option>
+              </select>
+            </td>
+              <td>{{items.datenow}}</td>
               <td>
-                <input type="hidden" name="getbarangayID" value="{{items.id}}">
-                <button type ="submit" href="/deleteuser">Delete</button>
-              </td>
+                <input type="hidden" name="getID" value="{{items.id}}">
+                <button type = "submit" class="btn btn-success">Save</button>
               </form>
+              </td>
             </tr>
             {% endfor %}
         </tbody>

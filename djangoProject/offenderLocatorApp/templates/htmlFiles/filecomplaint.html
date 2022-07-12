@@ -36,13 +36,17 @@
             <li><a class="nav-link" href="/admin_lookup">Offenders</a></li>
             <li><a class="nav-link" href="/filecomplaint">File a complaint</a></li>
             <li><a class="nav-link" href="/schedule">Schedule</a></li>
-            <li><a class="nav-link" href="/account_manager">Account Manager</a></li>
-            
+            {%if user.is_superuser%}
+            <li><a class="nav-link" href="/account_manager">Officers</a></li>
+            {% endif %}
             <div class="btn-group">
               <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="{% static 'Media/profile.jpeg.png' %}" alt="" width="32px" height="32px">
               </button>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                {%if user.is_superuser%}
+                <li><a class="nav-link" href="/registration">Add Officer</a></li>
+                {% endif %}
                 <li><a id="signout"class="dropdown-item" href="/logout" selected>Sign Out</a></li>
               </ul>
             </div>
