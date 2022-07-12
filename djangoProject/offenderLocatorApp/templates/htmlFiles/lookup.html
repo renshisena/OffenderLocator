@@ -91,60 +91,58 @@
     <li>Click the search button to see results.</li>
     <hr />
     <h2>Required Information</h2>
+    <div class="container-lg">
 
-    <form>
-      {% csrf_token %}
-      <div class="row">
-        <div class="col-md-4 col-sm-12" id="lookupfname">
-          <label for="searchName" style="color: #eeee">Offender's Full Name:</label>
-          <input type="text" class="form-control" name="searchName" id="searchName" placeholder="John Doe" required />
+      <form onsubmit="event.preventDefault();">
+        <div class="row">
+          <div class="col-md-4 col-sm-12" id="lookupfname">
+            <label for="searchALname" style="color: #eeee;">Officer's Name:</label>
+            <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="Juan Dela Cruz" required>
+          </div>
         </div>
-        <div>
-          <button type="button" class="btn btn-outline-dark" onclick="checkSearch()">
-            <i class="fas fa-search"></i> Search
-          </button>
-        </div>
+        <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearchAL()"><i class="fas fa-search"></i> Search</button>
       </div>
-    </form>
-  </div>
+      </form>
   <hr>
   <div class="container-lg">
     <h2>SEARCH RESULTS:</h2>
-    <div class="table-responsive-admin">
-      <table id="lookupTable" class="table table-dark table-striped">
+   <div class="table-responsive-admin">
+        <!-- Editable table -->
+
+  <div class="card-body">
+    <div class="table-editable">
+      <table class="table table-hover" id="adminTable"> 
         <thead>
           <tr>
-            <th scope="col">Case ID</th>
-            <th scope="col">Offender's Name</th>
-            <th scope="col">Age</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Offense</th>
-            <th scope="col">Case Status</th>
-            <th scope="col">Complainant</th>
-            <th scope="col">Date of Complaint</th>
-            <th scope="col">Action</th>
-            
+            <th class="text-center">Offender's Name</th>
+            <th class="text-center">Case ID</th>
+            <th class="text-center">Age</th>
+            <th class="text-center">Gender</th>
+            <th class="text-center">Offense</th>
+            <th class="text-center">Case Status</th>
+            <th class="text-center">Date of Complaint</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          <form method="POST" action="">
-            {% csrf_token %}
-            {% for items in data1 %}
+          {% for items in data1 %}
             <tr>
+              <td>{{items.offender}}</th>
               <td>{{items.id}}</td>
-              <td>{{items.offender}}</td>
               <td>{{items.age}}</td>
               <td>{{items.gender}}</td>
               <td>{{items.offense}}</td>
               <td>{{items.caseStatus}}</td>
-              <td>{{items.complainant}}</td>
+              <form action="" method="post">
+                {% csrf_token %}
+            </td>
               <td>{{items.datenow}}</td>
               <td>
-                <button name="submitBtn" href ="{% static 'view_details()' %}"value="{{items.id}}" type="submit" class="btn btn-primary">Print Details </button>
+                  <button name="submitBtn" href ="{% static 'view_details()' %}"value="{{items.id}}" type="submit" class="btn btn-primary">Print Details </button>
+              </form>
               </td>
             </tr>
             {% endfor %}
-          </form>
         </tbody>
       </table>
     </div>
@@ -160,10 +158,9 @@
       offender's sentence cannot be discussed with the general public.
     </p>
   </div>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"> </script>
+  <script src="{% static 'JavaScript/script.js' %}"></script>
 </body>
 </html>

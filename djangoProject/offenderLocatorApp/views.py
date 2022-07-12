@@ -162,8 +162,6 @@ def addoffender(request):
     
 def registration(request):
     return render(request, 'htmlFiles/registration.html')
-def records(request):
-    return render(request, 'htmlFiles/records.html')
 def about(request):
     return render(request, 'htmlFiles/about.html')
 

@@ -80,14 +80,12 @@
       <form onsubmit="event.preventDefault();">
         <div class="row">
           <div class="col-md-4 col-sm-12" id="lookupfname">
-            <label for="searchALname" style="color: #eeee;">Offender's Full Name:</label>
-            <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="John Doe" required>
+            <label for="searchALname" style="color: #eeee;">Offender's Name:</label>
+            <input type="text" class="form-control" name="searchALname" id="searchALname" placeholder="Juan Dela Cruz" required>
           </div>
-        <div>
-          <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearch()">
-            <i class="fas fa-search"></i> Search
-          </button>
         </div>
+        <button type="submit" class="btn btn-outline-dark" id="searchAdminLookup" onclick="checkSearchAL()"><i class="fas fa-search"></i> Search</button>
+      </div>
       </form>
     </div>
     </div>

@@ -17,7 +17,6 @@ urlpatterns = [
     path('addoffender/',views.addoffender,name='addoffender'),
     path('view_details/',views.view_details, name='view_details'),
     path('registration/',views.user_registration, name='registration'),
-    path('records/',views.records, name='records'),
     path('account_manager/',views.accountmanager, name='accountmanager'),
     path('about/',views.about, name='about'),
     path('logout/',views.logoutUser, name='logout'),
