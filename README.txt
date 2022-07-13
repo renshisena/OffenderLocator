@@ -17,3 +17,17 @@ HOW TO USE THE WEB APPLICATION:
 5. type py manage.py makemigrations
 6. type py manage.py migrate
 7. and try to runserver to run the WEB APPLICATION
+
+WEB DEPLOYMENT SETTINGS:
+    Database host address:offenderlocator.mysql.pythonanywhere-services.com
+    Username:offenderlocator
+
+    Start a console on:offenderlocator$default
+    Start a console on:offenderlocator$offenders
+
+    password mysql
+    admin619123456
+
+    SUPERUSER:
+    Anabu2F
+    admin619123456
